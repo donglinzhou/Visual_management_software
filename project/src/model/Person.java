@@ -1,5 +1,5 @@
 package model;
-
+/*  登录操作类     */
 public abstract class Person {
 	protected String name=" ";
 	protected int id=0;

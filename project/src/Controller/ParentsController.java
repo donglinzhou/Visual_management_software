@@ -11,11 +11,11 @@ public class ParentsController {
 	
 	public ParentsController(){
 	}
-	
+	//初始化parents类
 	public void setParentsModel(Parents parents) {
 		this.parents=parents;
 	}
-	
+	//初始化parentsView视图
 	public void setParentsView(ParentsView parentsView) {
 		this.parentsView=parentsView;
 	}
@@ -30,24 +30,24 @@ public class ParentsController {
 		parentsView.printStudentGradeInfo(parents.performCheckStudentGradeInfo());
 	}
 	
+	//--------DL-----------//
 	public void getStudentAttendanceRecordView() {
 		//打印考勤记录
-		parentsView.printStudentAttendanceRecord();
+		parentsView.printStudentAttendanceRecord(parents.performCheckStudentAttendanceRecord());
+		System.out.println("");
 	}
 	
 	public void getStudentTrackInfoView() {
 		//打印成长档案
-		parentsView.printStudentTrackInfo();
+		parentsView.printStudentTrackInfo(parents.performCheckStudentTrackInfo());
+		System.out.println("");
 	}
+	
 	
 	/*动态设置Parents类中的行为对象:对修改开放*/
 	public void setParentsCheckStudentInfoBehavior(CheckStudentInfoBehavior checkStudentInfoBehavior) {
 		parents.setCheckStudentInfoBehavior(checkStudentInfoBehavior);
-	}
-	
-	public void setParentsCheckStudentTrackInfoBehavior(CheckStudentTrackInfoBehavior checkTrackInfoBehavior) {
-		parents.setCheckStudentTrackInfoBehavior(checkTrackInfoBehavior);
-	}
+	}//学生基本信息
 	
 	public void setParentsCheckStudentGradeInfoBehavior(CheckStudentGradeInfoBehavior checkStudentGradeInfoBehavior) {
 		parents.setCheckStudentGradeInfoBehavior(checkStudentGradeInfoBehavior);
@@ -57,11 +57,16 @@ public class ParentsController {
 		parents.setCheckStudentConsumptionInfoBehavior(checkStudentConsumptionInfoBehavior);
 	}
 	
+	//--------DL---------//
+	public void setParentsCheckStudentTrackInfoBehavior(CheckStudentTrackInfoBehavior checkTrackInfoBehavior) {
+		parents.setCheckStudentTrackInfoBehavior(checkTrackInfoBehavior);
+	}//成长档案
+	
 	public void setParentsCheckStudentAttendanceRecordBehavior(CheckStudentAttendanceRecordBehavior checkAttendanceRecordBehavior) {
 		parents.setCheckStudentAttendanceRecordBehavior(checkAttendanceRecordBehavior);
-	}
+	}//考勤记录
 	
 	public void setParentsAddStudentInfoBehavior(AddStudentInfoBehavior addStudentInfoBehavior) {
 		parents.setAddStudentInfoBehavior(addStudentInfoBehavior);
-	}
+	}//增加信息
 }

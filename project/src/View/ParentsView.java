@@ -22,12 +22,18 @@ public class ParentsView {
 		//打印学生消费信息
 	}
 	
-	public void printStudentAttendanceRecord() {
+	
+	//----------DL--------//
+	public void printStudentAttendanceRecord(ArrayList<ArrayList<String>> attendanceRecord) {
 		//打印考勤记录
+		System.out.println(attendanceRecord);
+		System.out.println("");
 	}
 	
-	public void printStudentTrackInfo() {
+	public void printStudentTrackInfo(ArrayList<String> trackInfo) {
 		//打印成长档案
+		System.out.println(trackInfo);
+		System.out.println("");
 	}
 	
 }
