@@ -45,3 +45,7 @@ https://blog.csdn.net/zwlove5280/article/details/109299801
 4.在controller类中修改get方法，主要是调用view方法的参数增加为model.perform方法
 5.在view中修改对应的方法，增加它的参数为一维或者二维的Arraylist
 6.在main 函数中，首先创建一个controller，然后set它对应的model和view，然后设置它的行为实例，然后再调用相应的view方法
+
+1.MVC/架构设计/
+2.分工
+3.难点：
