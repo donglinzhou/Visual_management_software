@@ -1,14 +1,13 @@
 package Controller;
 import model.*;
 
+import java.util.ArrayList;
 import java.util.Vector;
 
 import View.*;
 
 public class ParentsController {
 	private Parents parents;
-	private ParentsView parentsView;
-	
 	
 	public ParentsController(){
 	}
@@ -17,32 +16,37 @@ public class ParentsController {
 		this.parents=parents;
 	}
 	
-	public void setParentsView(ParentsView parentsView) {
-		this.parentsView=parentsView;
+	public ArrayList<String> getStudentInfoView(String ID) {
+		//´òÓ¡Ñ§ÉúµÄ»ù±¾ÐÅÏ¢
+		return parents.performCheckStudentInfo(ID);
 	}
 	
-	public void getStudentInfoView() {
-		//ï¿½ï¿½Ó¡Ñ§ï¿½ï¿½ï¿½Ä»ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
-		parentsView.printStudentInfo(parents.performCheckStudentInfo());
+	public ArrayList<ArrayList<Integer>> getStudentGradeInfoView(String ID, String num) {
+		//´òÓ¡Ñ§ÉúÑ§ÒµÐÅÏ¢
+		int n = Integer.parseInt(num);
+		return parents.performCheckStudentGradeInfo(ID, n);
 	}
 	
-	public void getStudentGradeInfoView() {
-		//ï¿½ï¿½Ó¡Ñ§ï¿½ï¿½Ñ§Òµï¿½ï¿½Ï¢
-		
-		parentsView.printStudentGradeInfo(parents.performCheckStudentGradeInfo());
+	public ArrayList<Integer> getStudentAttendanceRecordView(String ID, String num) {
+		//´òÓ¡¿¼ÇÚ¼ÇÂ¼
+		int n = Integer.parseInt(num);
+		int studentID = Integer.parseInt(ID);
+		return parents.performCheckStudentAttendanceRecord(studentID, n);
 	}
 	
-	/*public void getStudentAttendanceRecordView() {
-		//ï¿½ï¿½Ó¡ï¿½ï¿½ï¿½Ú¼ï¿½Â¼
-		parentsView.printStudentAttendanceRecord();
+	public ArrayList<Integer> getStudentTrackInfoView(String ID, String num) {
+		//´òÓ¡³É³¤µµ°¸
+		int n = Integer.parseInt(num);
+		return parents.performCheckStudentTrackInfo(ID, n);
 	}
 	
-	public void getStudentTrackInfoView() {
-		//ï¿½ï¿½Ó¡ï¿½É³ï¿½ï¿½ï¿½ï¿½ï¿½
-		parentsView.printStudentTrackInfo();
-	}*/
+	public ArrayList<Double> getStudentConsumptionInfoView(String ID, String num) {
+		//´òÓ¡³É³¤µµ°¸
+		int n = Integer.parseInt(num);
+		return parents.performCheckStudentConsumptionInfo(ID, n);
+	}
 	
-	/*ï¿½ï¿½Ì¬ï¿½ï¿½ï¿½ï¿½Parentsï¿½ï¿½ï¿½Ðµï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½:ï¿½ï¿½ï¿½Þ¸Ä¿ï¿½ï¿½ï¿½*/
+	/*¶¯Ì¬ÉèÖÃParentsÀàÖÐµÄÐÐÎª¶ÔÏó:¶ÔÐÞ¸Ä¿ª·Å*/
 	public void setParentsCheckStudentInfoBehavior(CheckStudentInfoBehavior checkStudentInfoBehavior) {
 		parents.setCheckStudentInfoBehavior(checkStudentInfoBehavior);
 	}
@@ -63,7 +67,5 @@ public class ParentsController {
 		parents.setCheckStudentAttendanceRecordBehavior(checkAttendanceRecordBehavior);
 	}
 	
-	public void setParentsAddStudentInfoBehavior(AddStudentInfoBehavior addStudentInfoBehavior) {
-		parents.setAddStudentInfoBehavior(addStudentInfoBehavior);
-	}
+
 }
