@@ -1,24 +1,20 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 import java.util.Vector;
-import java.util.Scanner;
-
 
 public class Parents extends Person{
-	/*å…¨éƒ¨ æ˜¯ç§æœ‰å˜é‡ï¼Œé€šè¿‡setæ–¹æ³•ä»æ•°æ®åº“ä¸­è·å–ï¼Œé€šè¿‡getæ–¹æ³•æä¾›ç»™å¤–éƒ¨è®¿é—®*/
-	/*æ•°æ®ç±»å‹æ ¹æ®æ•°æ®åº“è®¾è®¡ï¼Œåé¢å¯èƒ½éœ€è¦ä¿®æ”¹*/
-	int studentID=13952; //å­¦ç”ŸID
+	/*È«²¿ ÊÇË½ÓĞ±äÁ¿£¬Í¨¹ıset·½·¨´ÓÊı¾İ¿âÖĞ»ñÈ¡£¬Í¨¹ıget·½·¨Ìá¹©¸øÍâ²¿·ÃÎÊ*/
+	/*Êı¾İÀàĞÍ¸ù¾İÊı¾İ¿âÉè¼Æ£¬ºóÃæ¿ÉÄÜĞèÒªĞŞ¸Ä*/
 	//	private String gender=" ";
 	//	private int enrollemtYear=0;
 	//	private int age=0;
 	//	private String politicsStatus=" ";
 	//	private String teacherName =" ";
-
-	
-	/*é™¤äº†æŸ¥çœ‹å­¦ç”ŸåŸºæœ¬ä¿¡æ¯çš„åŠŸèƒ½ï¼Œå…¶ä»–åŠŸèƒ½çš„æ•°æ®ç»“æ„ä½¿ç”¨javaç°æœ‰çš„å·¥å…·åŒ…å’Œæä¾›çš„æ•°æ®ç±»å‹*/
-	/*ä½¿ç”¨è¡Œä¸ºæ¥å£ç±»å‹å£°æ˜å¼•ç”¨å˜é‡*/
+	String ID;
+	int n;
+	/*³ıÁË²é¿´Ñ§Éú»ù±¾ĞÅÏ¢µÄ¹¦ÄÜ£¬ÆäËû¹¦ÄÜµÄÊı¾İ½á¹¹Ê¹ÓÃjavaÏÖÓĞµÄ¹¤¾ß°üºÍÌá¹©µÄÊı¾İÀàĞÍ*/
+	/*Ê¹ÓÃĞĞÎª½Ó¿ÚÀàĞÍÉùÃ÷ÒıÓÃ±äÁ¿*/
 	CheckStudentInfoBehavior checkStudentInfoBehavior;
 	CheckStudentTrackInfoBehavior checkStudentTrackInfoBehavior;
 	CheckStudentGradeInfoBehavior checkStudentGradeInfoBehavior;
@@ -26,56 +22,45 @@ public class Parents extends Person{
 	CheckStudentAttendanceRecordBehavior checkStudentAttendanceRecordBehavior;
 	AddStudentInfoBehavior addStudentInfoBehavior;
 	
-	/*è¡Œä¸ºå§”æ‰˜ç»™è¡Œä¸ºç±»-éœ€è¦å†™æˆreturn æ•°æ®,å› æ­¤è¿”å›å€¼éœ€è¦æ”¹å˜*/
-	public ArrayList<String> performCheckStudentInfo() {
-		//æŸ¥çœ‹å­¦ç”ŸåŸºæœ¬ä¿¡æ¯
-		return checkStudentInfoBehavior.checkStudentInfo();
+	/*ĞĞÎªÎ¯ÍĞ¸øĞĞÎªÀà-ĞèÒªĞ´³Éreturn Êı¾İ,Òò´Ë·µ»ØÖµĞèÒª¸Ä±ä*/
+	public ArrayList<String> performCheckStudentInfo(String ID) {
+		//²é¿´Ñ§Éú»ù±¾ĞÅÏ¢
+		return checkStudentInfoBehavior.checkStudentInfo(ID);
 	}
 	
-	public ArrayList<ArrayList<String>> performCheckStudentGradeInfo() {
-		//æŸ¥çœ‹å­¦ä¸šç”»åƒ
-		return checkStudentGradeInfoBehavior.checkStudentGradeInfo();
+	public ArrayList<Integer> performCheckStudentTrackInfo(String ID, int n) {
+		//²é¿´³É³¤µµ°¸
+		return checkStudentTrackInfoBehavior.checkStudentTrackInfo(ID,n);
 	}
 	
-	public void performCheckStudentConsumptionInfo() {
-		//æŸ¥çœ‹æ¶ˆè´¹æƒ…å†µ
-		checkStudentConsumptionInfoBehavior.checkStudentConsumptionInfo();
+	public ArrayList<ArrayList<Integer>> performCheckStudentGradeInfo(String ID, int n) {
+		//²é¿´Ñ§Òµ»­Ïñ
+		return checkStudentGradeInfoBehavior.checkStudentGradeInfo(ID,n);
 	}
 	
-	//----------DL-----------//
-	public ArrayList<String> performCheckStudentTrackInfo() {
-		//æŸ¥çœ‹æˆé•¿æ¡£æ¡ˆ
-		@SuppressWarnings("resource")
-		Scanner stdinScanner = new Scanner(System.in);
-		System.out.println("è¯·è¾“å…¥å­¦ç”Ÿå­¦å·ï¼š");
-		studentID=stdinScanner.nextInt();
-		System.out.println(studentID);
-		
-		return checkStudentTrackInfoBehavior.checkStudentTrackInfo(studentID);
+	public ArrayList<Double> performCheckStudentConsumptionInfo(String ID, int n) {
+		//²é¿´Ïû·ÑÇé¿ö
+		return checkStudentConsumptionInfoBehavior.checkStudentConsumptionInfo(ID,n);
 	}
 	
-	public ArrayList<ArrayList<String>> performCheckStudentAttendanceRecord() {
-		//æŸ¥çœ‹è€ƒå‹¤è®°å½•
-		@SuppressWarnings("resource")
-		Scanner stdinScanner = new Scanner(System.in);
-		System.out.println("è¯·è¾“å…¥å­¦ç”Ÿå­¦å·ï¼š");
-		studentID=stdinScanner.nextInt();
-		System.out.println(studentID);
-		
-		return checkStudentAttendanceRecordBehavior.checkStudentAttendanceRecord(studentID);
+	public ArrayList<Integer> performCheckStudentAttendanceRecord(int studentID, int n) {
+		//²é¿´³öÇÚÇé¿ö
+		return checkStudentAttendanceRecordBehavior.checkStudentAttendanceRecord(studentID, n);
 		
 	}
 	
 	public void performAddStudentInfo() {
-		//å¢åŠ ä¿¡æ¯ï¼Œå†™å…¥æ•°æ®åº“
-		addStudentInfoBehavior.addStudentInfo(studentID);
+		//Ôö¼ÓĞÅÏ¢£¬Ğ´ÈëÊı¾İ¿â
+		addStudentInfoBehavior.addStudentInfo();
 	}
-	//----------DL--------------//
 	
-	
-	/*åŠ¨æ€è®¾å®šè¡Œä¸ºï¼Œå®é™…ä¸Šä¼ å…¥çš„åº”è¯¥æ˜¯ä¸€ä¸ªç±»çš„å®ä¾‹*/
+	/*¶¯Ì¬Éè¶¨ĞĞÎª£¬Êµ¼ÊÉÏ´«ÈëµÄÓ¦¸ÃÊÇÒ»¸öÀàµÄÊµÀı*/
 	public void setCheckStudentInfoBehavior(CheckStudentInfoBehavior checkStudentInfoBehavior) {
 		this.checkStudentInfoBehavior = checkStudentInfoBehavior;
+	}
+	
+	public void setCheckStudentTrackInfoBehavior(CheckStudentTrackInfoBehavior checkTrackInfoBehavior) {
+		this.checkStudentTrackInfoBehavior = checkTrackInfoBehavior;
 	}
 	
 	public void setCheckStudentGradeInfoBehavior(CheckStudentGradeInfoBehavior checkStudentGradeInfoBehavior) {
@@ -86,17 +71,13 @@ public class Parents extends Person{
 		this.checkStudentConsumptionInfoBehavior = checkStudentConsumptionInfoBehavior;
 	}
 	
-	public void setCheckStudentTrackInfoBehavior(CheckStudentTrackInfoBehavior checkTrackInfoBehavior) {
-		this.checkStudentTrackInfoBehavior = checkTrackInfoBehavior;
-	}//æŸ¥çœ‹æˆé•¿æ¡£æ¡ˆ
-	
 	public void setCheckStudentAttendanceRecordBehavior(CheckStudentAttendanceRecordBehavior checkAttendanceRecordBehavior) {
 		this.checkStudentAttendanceRecordBehavior = checkAttendanceRecordBehavior;
-	}//æŸ¥çœ‹è€ƒå‹¤è®°å½•
+	}
 	
 	public void setAddStudentInfoBehavior(AddStudentInfoBehavior addStudentInfoBehavior) {
 		this.addStudentInfoBehavior = addStudentInfoBehavior;
-	}//å¢åŠ ä¿¡æ¯ï¼Œå†™å…¥æ•°æ®åº“
+	}
 	
 	
 }
