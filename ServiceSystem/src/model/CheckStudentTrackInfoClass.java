@@ -8,8 +8,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class CheckStudentTrackInfoClass implements CheckStudentTrackInfoBehavior {
-	static String ID="15888";//传入的学生学科
-	static int n=5;//传入需要查看的最近的考试次数
+	//static String ID="15888";//传入的学生学科
+	//static int n=5;//传入需要查看的最近的考试次数
 	
 	static ArrayList<Integer> studentInfo =new ArrayList<Integer>();//存储需要查询的学生学业画像
 	static ArrayList<ArrayList<String>> studentInfo1 = new ArrayList<ArrayList<String>>();//存储无用学生学业画像信息的集合，中转变量
@@ -19,6 +19,11 @@ public class CheckStudentTrackInfoClass implements CheckStudentTrackInfoBehavior
 
 	@Override
 	public  ArrayList<Integer> checkStudentTrackInfo(String ID,int n) {
+		 ArrayList<Integer> studentInfo =new ArrayList<Integer>();//存储需要查询的学生学业画像
+		 ArrayList<ArrayList<String>> studentInfo1 = new ArrayList<ArrayList<String>>();//存储无用学生学业画像信息的集合，中转变量
+		 ArrayList<ArrayList<String>> studentInfo2 = new ArrayList<ArrayList<String>>();//存储无用学生学业画像信息的集合，中转变量
+		 ArrayList<ArrayList<Integer>>studentInfo3 = new ArrayList<ArrayList<Integer>>();
+		
 		// TODO 鑷姩鐢熸垚鐨勬柟娉曞瓨鏍�
 		//System.out.println("查看学生个人信息");
 		Connection conn = null;
