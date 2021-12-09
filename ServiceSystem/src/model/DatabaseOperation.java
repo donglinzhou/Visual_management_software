@@ -5,14 +5,14 @@ import java.util.ArrayList;
 public interface DatabaseOperation {
 
 	/**
-	 * 实现数据库操作的类都需要实现这个接口 \\
+	 * 实锟斤拷锟斤拷锟捷匡拷锟斤拷锟斤拷锟斤拷喽硷拷锟揭碉拷锟斤拷锟斤拷锟接匡拷 \\
 	 * 
-	 * choose -- 点击事件返回的参数，用于判断所选的点击事件
+	 * choose -- 锟斤拷锟斤拷录锟斤拷锟斤拷氐牟锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷卸锟斤拷锟窖★拷牡锟斤拷锟铰硷拷
 	 * 
-     * @param data：ArrayList<String> 
+     * @param data锟斤拷ArrayList<String> 
      * @param choose: int  
      * @throws SQLException
-     *
+     * 
 	 */
 	
 	public void databaseOperation(ArrayList<String> data, int choose);

@@ -2,8 +2,6 @@ package model;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.Vector;
-import java.util.Scanner;
 
 
 public class Parents extends Person{

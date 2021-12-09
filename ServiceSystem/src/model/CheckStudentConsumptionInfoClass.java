@@ -7,29 +7,23 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class CheckStudentConsumptionInfoClass implements CheckStudentConsumptionInfoBehavior {
+public class CheckStudentConsumptionInfoClass implements CheckStudentConsumptionInfoBehavior {//²éÑ¯Ñ§ÉúÏû·Ñ¼ÇÂ¼
 
-	static int ID=13012;//ä¼ å…¥çš„å­¦ç”ŸID
-	static ArrayList<ArrayList<String>> studentInfo = new ArrayList<ArrayList<String>>();
+//	static String ID="15888";//´«ÈëµÄÑ§ÉúID
+//	static int n=5;
+	//static ArrayList<Double>studentInfo= new ArrayList<Double>();
+	//static ArrayList<Double>studentInfo3= new ArrayList<Double>();
+	//static ArrayList<ArrayList<String>> studentInfo2 = new ArrayList<ArrayList<String>>();//ÀàµÄÈ«¾Ö±äÁ¿£¬ÓÃÀ´´æ´¢·µ»ØÑ§ÉúÏû·Ñ¼ÇÂ¼
+	//static ArrayList<ArrayList<String>> studentInfo1 = new ArrayList<ArrayList<String>>();//ÀàµÄÈ«¾Ö±äÁ¿£¬ÓÃÀ´´æ´¢·µ»ØÑ§ÉúÎŞÓÃÏû·Ñ¼ÇÂ¼
+
 	@Override
-	public ArrayList<ArrayList<String>> checkStudentConsumptionInfo() {
-		// TODO è‡ªåŠ¨ç”Ÿæˆçš„æ–¹æ³•å­˜æ ¹
-		//éœ€è¦æŸ¥çœ‹ï¼šå§“åï¼Œå¹´é¾„ï¼Œæ€§åˆ«ï¼Œå…¥å­¦å¹´ä»½ã€æ”¿æ²»é¢è²Œã€ç­ä¸»ä»»å§“å
-		System.out.println("æŸ¥çœ‹å­¦ç”Ÿä¸ªäººä¿¡æ¯");
-//		Vector<String> info=new Vector<String>();
-//		info.add("å¼ ä¸‰");
-//		info.add("18");
-//		info.add("2019");
-//		info.add("å›¢å‘˜");
-//		info.add("ç‹äº”");
-//		return info;
-//		public static void main(String []args) {
-	
-		return studentInfo;
-		
-	}
+	public  ArrayList<Double> checkStudentConsumptionInfo(String ID,int n) {//·µ»ØµÄÑ§ÉúÏû·Ñ¼ÇÂ¼
+		 ArrayList<Double>studentInfo= new ArrayList<Double>();
+		 ArrayList<Double>studentInfo3= new ArrayList<Double>();
+		 ArrayList<ArrayList<String>> studentInfo2 = new ArrayList<ArrayList<String>>();//ÀàµÄÈ«¾Ö±äÁ¿£¬ÓÃÀ´´æ´¢·µ»ØÑ§ÉúÏû·Ñ¼ÇÂ¼
+		 ArrayList<ArrayList<String>> studentInfo1 = new ArrayList<ArrayList<String>>();//ÀàµÄÈ«¾Ö±äÁ¿£¬ÓÃÀ´´æ´¢·µ»ØÑ§ÉúÎŞÓÃÏû·Ñ¼ÇÂ¼
 
-	public static void main(String []args) {
+		//System.out.println("²é¿´Ñ§Éú¸öÈËĞÅÏ¢");
 		Connection conn = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -38,43 +32,49 @@ public class CheckStudentConsumptionInfoClass implements CheckStudentConsumption
 	            // broken Java implementations
 
 	            Class.forName("com.mysql.cj.jdbc.Driver");
-	            System.out.println("åŠ è½½æˆåŠŸ");
+	            System.out.println("¼ÓÔØ³É¹¦");
 	        } catch (Exception ex) {
-	        	System.out.println("åŠ è½½å¤±è´¥");
+	        	System.out.println("¼ÓÔØÊ§°Ü");
 	            // handle the error
 	        }
 		
 		try {
 		    conn =
-		       DriverManager.getConnection("jdbc:mysql://10.22.27.7:3306/è½¯å·¥å°ç»„é¡¹ç›®","é‚¹æŒ¯åº­","1234");
-		       //æ­¤å¤„è½¯å·¥é¡¹ç›®å°ç»„ä¸ºmysqlæå‰å»ºç«‹çš„æ•°æ®åº“ï¼Œé‚¹æŒ¯åº­ä¸ºç”¨æˆ·åï¼Œæœ€åä¸ºå¯†ç ï¼š1234
+		       DriverManager.getConnection("jdbc:mysql://172.16.107.100:3306/Èí¹¤Ğ¡×éÏîÄ¿","×ŞÕñÍ¥","1234");
+		       //´Ë´¦Èí¹¤ÏîÄ¿Ğ¡×éÎªmysqlÌáÇ°½¨Á¢µÄÊı¾İ¿â£¬×ŞÕñÍ¥ÎªÓÃ»§Ãû£¬×îºóÎªÃÜÂë£º1234
 
-		   System.out.println("è¿æ¥æˆåŠŸ");
+		   System.out.println("Á¬½Ó³É¹¦");
 
-		   //ä¸€ä¸‹æµ‹è¯•è¾“å‡ºæ•°æ®åº“å†…æ•°æ®ï¼Œæå‰åœ¨æ•°æ®åº“å†…å»ºç«‹userè¡¨ï¼Œæ·»åŠ numå’Œname
+		   //Ò»ÏÂ²âÊÔÊä³öÊı¾İ¿âÄÚÊı¾İ£¬ÌáÇ°ÔÚÊı¾İ¿âÄÚ½¨Á¢user±í£¬Ìí¼ÓnumºÍname
 		   
-		  // ps = conn.prepareStatement("select å­¦ç”ŸID,å­¦ç”Ÿå§“å from è½¯å·¥å°ç»„é¡¹ç›®.å­¦ç”Ÿè¡¨;");
+		  // ps = conn.prepareStatement("select Ñ§ÉúID,Ñ§ÉúĞÕÃû from Èí¹¤Ğ¡×éÏîÄ¿.Ñ§Éú±í;");
 		   ps = conn.prepareStatement(""
-			   		+ "select å­¦ç”Ÿè¡¨.å­¦ç”Ÿå§“å,å­¦ç”Ÿè¡¨.å­¦ç”ŸID,æ¶ˆè´¹æ—¶é—´,æ¶ˆè´¹é‡‘é¢\n" + 
-			   		"from è½¯å·¥å°ç»„é¡¹ç›®.å­¦ç”Ÿè¡¨,è½¯å·¥å°ç»„é¡¹ç›®.æ¶ˆè´¹è¡¨\n" + 
-			   		"where å­¦ç”Ÿè¡¨.å­¦ç”ŸID=æ¶ˆè´¹è¡¨.å­¦ç”ŸID \n" + 
-			   		"and å­¦ç”Ÿè¡¨.å­¦ç”ŸID="+ID);
+			   		+ "select Ñ§Éú±í.Ñ§ÉúĞÕÃû,Ñ§Éú±í.Ñ§ÉúID,Ïû·ÑÊ±¼ä,Ïû·Ñ½ğ¶î\r\n" + 
+			   		"from Èí¹¤Ğ¡×éÏîÄ¿.Ñ§Éú±í,Èí¹¤Ğ¡×éÏîÄ¿.Ïû·Ñ±í\r\n" + 
+			   		"where Ñ§Éú±í.Ñ§ÉúID=Ïû·Ñ±í.Ñ§ÉúID\r\n" + 
+			   		"      and Ñ§Éú±í.Ñ§ÉúID=" +ID);
 		   rs = ps.executeQuery();
 		   while(rs.next()) {
-			   
-			   int num = rs.getInt("å­¦ç”ŸID");
-			   String name = rs.getString("å­¦ç”Ÿå§“å");
-			   String consumptionTime = rs.getString("æ¶ˆè´¹æ—¶é—´");
-			   double consumptionAmount = rs.getInt("æ¶ˆè´¹é‡‘é¢");
-			   System.out.print(num+"\t"+name+"\t"+consumptionTime+"\t"+consumptionAmount);
+			   ArrayList<String> people =new ArrayList<String>();//´æ´¢Ò»ÌõÑ§ÉúÏû·Ñ¼ÇÂ¼µÄÔª×é
+			   //Ñ§ÉúID£¬Ñ§ÉúĞÕÃû£¬Ïû·ÑÊ±¼ä£¬Ïû·Ñ½ğ¶î
+			   int num = rs.getInt("Ñ§ÉúID");
+			   String name = rs.getString("Ñ§ÉúĞÕÃû");
+			   String consumptionTimeYear = rs.getString("Ïû·ÑÊ±¼ä").substring(0, 4);
+			   String consumptionTimeMonth = rs.getString("Ïû·ÑÊ±¼ä").substring(5,6);
+			   double consumptionAmount = rs.getInt("Ïû·Ñ½ğ¶î");
+			   System.out.print(num+"\t"+name+"\t"+consumptionTimeYear+"\t"+consumptionTimeMonth+"\t"+consumptionAmount);
 			   System.out.println("");
 			   
-			   ArrayList<String> people =new ArrayList<String>();
+			  
+			   
+			 //½«Ñ§ÉúID£¬Ñ§ÉúĞÕÃû£¬Ïû·ÑÊ±¼ä£¬Ïû·Ñ½ğ¶î²åÈëpeople
 			   people.add(name);
 			   people.add(Integer.toString(num));
-			   people.add(consumptionTime);
+			   people.add(consumptionTimeYear);
+			   people.add(consumptionTimeMonth);
 			   people.add(String.valueOf(consumptionAmount));
-			   studentInfo.add(people);
+			   //½«people²åÈëstudentInfo
+			   studentInfo2.add(people);
 			   
 			   /*ArrayList<String> name1=new ArrayList<String>();
 			   ArrayList<String> consumptionTime1=new ArrayList<String>();
@@ -89,10 +89,7 @@ public class CheckStudentConsumptionInfoClass implements CheckStudentConsumption
 			   /*studentInfo.add(name1);
 			   studentInfo.add(num1);
 			   studentInfo.add(consumptionTime1);
-			   studentInfo.add(consumptionAmount1);*/
-			   
-			   
-			   
+			   studentInfo.add(consumptionAmount1);*/   
 			   
 		   }
 
@@ -101,9 +98,42 @@ public class CheckStudentConsumptionInfoClass implements CheckStudentConsumption
 		    System.out.println("SQLException: " + ex.getMessage());
 		    System.out.println("SQLState: " + ex.getSQLState());
 		    System.out.println("VendorError: " + ex.getErrorCode());
-		    System.out.println("è¿æ¥å¤±è´¥");
+		    System.out.println("Á¬½ÓÊ§°Ü");
 		}
-		System.out.println(studentInfo);//æ£€æŸ¥æ˜¯å¦æ­£ç¡®ä¼ å…¥
+		String FLAG=studentInfo2.get(0).get(3);
+		double sum=0.0;
+		for(int i=0;i<studentInfo2.size();i++) {
+			if (studentInfo2.get(i).get(3).equals(FLAG)) {
+				
+				sum += Double.parseDouble(studentInfo2.get(i).get(4));
+				if(i==studentInfo2.size()-1) studentInfo3.add(sum);
+				}
+			
+			else 
+			{
+				FLAG=studentInfo2.get(i).get(3);
+				studentInfo3.add(sum);
+				sum=0;
+				sum += Double.parseDouble(studentInfo2.get(i).get(4));
+				
+			
+		}
+		
+		
 	}
+		if(studentInfo3.size()<n) 
+			n=studentInfo3.size();
+		
+		for (int c=0;c<n;c++) {
+			studentInfo.add(studentInfo3.get(c));
+			
+		}
+		//System.out.println(studentInfo3);//¼ì²éÊÇ·ñÕıÈ·´«Èë
 	
+		return studentInfo;
+		
+	}
+
+
 }
+

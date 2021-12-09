@@ -3,12 +3,9 @@ import model.*;
 
 import java.util.Vector;
 
-import View.*;
-
 public class ParentsController {
 	private Parents parents;
-	private ParentsView parentsView;
-	
+
 	
 	public ParentsController(){
 	}
@@ -16,31 +13,7 @@ public class ParentsController {
 	public void setParentsModel(Parents parents) {
 		this.parents=parents;
 	}
-	
-	public void setParentsView(ParentsView parentsView) {
-		this.parentsView=parentsView;
-	}
-	
-	public void getStudentInfoView() {
-		//��ӡѧ���Ļ�����Ϣ
-		parentsView.printStudentInfo(parents.performCheckStudentInfo());
-	}
-	
-	public void getStudentGradeInfoView() {
-		//��ӡѧ��ѧҵ��Ϣ
-		
-		parentsView.printStudentGradeInfo(parents.performCheckStudentGradeInfo());
-	}
-	
-	/*public void getStudentAttendanceRecordView() {
-		//��ӡ���ڼ�¼
-		parentsView.printStudentAttendanceRecord();
-	}
-	
-	public void getStudentTrackInfoView() {
-		//��ӡ�ɳ�����
-		parentsView.printStudentTrackInfo();
-	}*/
+
 	
 	/*��̬����Parents���е���Ϊ����:���޸Ŀ���*/
 	public void setParentsCheckStudentInfoBehavior(CheckStudentInfoBehavior checkStudentInfoBehavior) {

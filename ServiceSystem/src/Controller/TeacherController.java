@@ -1,5 +1,4 @@
 package Controller;
-import View.TeachersView;
 import model.CheckClassHistoryGradeListBehavior;
 import model.CheckClassMemberListBehavior;
 import model.CheckClassStudentGradeBehavior;
@@ -7,20 +6,16 @@ import model.CheckClassStudentSubjectHistoryListBehavior;
 import model.CheckClassedListBehavior;
 import model.CheckTeacherInfoBehavior;
 import model.Teachers;
+
 public class TeacherController {
 	private Teachers teachers;
-	private TeachersView teachersView;
 	public TeacherController() {	
 	}
 	
 	public void setTeachersModel(Teachers teachers) {
 		this.teachers=teachers;
 	}
-	
-	public void setTeachersView(TeachersView teachersView) {
-		this.teachersView = teachersView;
-	}
-    
+	   
 	/*整合时加入
 	public void getStudentInfoView() {
 		//打印学生的基本信息
@@ -48,12 +43,12 @@ public class TeacherController {
 		Teachers person = new Teachers();
 		int id = person.getId();
 		String teacherid = Integer.toString(id);
-		teachersView.printClassList(teachers.performCheckClassedList(teacherid));
+		//teachersView.printClassList(teachers.performCheckClassedList(teacherid));
 	}
 	
 	public void getClassHistoryGradeView() {
 		//打印班级历史总成绩排名表
-		teachersView.printClassHistoryGrade(teachers.performCheckClassHistoryGradeList());
+		//teachersView.printClassHistoryGrade(teachers.performCheckClassHistoryGradeList());
 	}
 	
 	public void getClassMemberListView() {
@@ -61,25 +56,16 @@ public class TeacherController {
 		Teachers person = new Teachers();
 		int id = person.getId();
 		String teacherid = Integer.toString(id);
-		teachersView.printClassMemberList(teachers.performCheckClassMemberList(teacherid));
 	}
-	
-	public void getClassStudentGradeView() {
-		//打印班级学生成绩
-		teachersView.printClassStudentGrade(teachers.performCheckClassStudentGrade());
-	}
+
     
-	public void getClassStudentSubjectHistoryListView() {
-		//打印班级内部学生各个科目的历史成绩排名表
-		teachersView.printClassStudentSubjectHistoryList(teachers.performCheckClassStudentSubjectHistoryList());
-	}
+
 	
 	public void getTeacherInfoView() {
 		//打印老师基本信息
 		Teachers person = new Teachers();
 		int id = person.getId();
 		String teacherid = Integer.toString(id);
-		teachersView.printTeacherInfo(teachers.performCheckTeacherInfo(teacherid));
 	}
 	
 	

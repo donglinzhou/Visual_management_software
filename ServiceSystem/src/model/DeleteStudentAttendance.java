@@ -5,20 +5,20 @@ import java.util.ArrayList;
 
 public class DeleteStudentAttendance implements DatabaseOperation{
 	/**
-	 * ¿¼ÇÚID¡¢¿¼ÇÚÀàÐÍID¡¢Ñ§ÉúID¡¢Ê±¼ä
+	 * ï¿½ï¿½ï¿½ï¿½IDï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½IDï¿½ï¿½Ñ§ï¿½ï¿½IDï¿½ï¿½Ê±ï¿½ï¿½ 
 	 * */
 	public static DatabaseModel database = new DatabaseModel();
 	
 	public void deleteStudentAttendance1(ArrayList<String> data) {
 	/**
-	 * É¾³ýµ¥Ìõ¿¼ÇÚ¼ÇÂ¼
+	 * É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¼ï¿½Â¼
 	 * */
 		
 		database.connect();
 		
 		try {
 
-			database.delete("Ñ§Éú¿¼ÇÚ±í", "¿¼ÇÚID", data);
+			database.delete("Ñ§ï¿½ï¿½ï¿½ï¿½ï¿½Ú±ï¿½", "ï¿½ï¿½ï¿½ï¿½ID", data);
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -28,14 +28,14 @@ public class DeleteStudentAttendance implements DatabaseOperation{
 	
 	public void deleteStudentAttendance2(ArrayList<String> data) {
 		/**
-		 * É¾³ýÄ³¸öÑ§ÉúµÄËùÓÐ¿¼ÇÚ¼ÇÂ¼
+		 * É¾ï¿½ï¿½Ä³ï¿½ï¿½Ñ§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¿ï¿½ï¿½Ú¼ï¿½Â¼
 		 * */
 		
 		database.connect();
 		
 		try {
 
-			database.delete("Ñ§Éú¿¼ÇÚ±í", "Ñ§ÉúID", data);
+			database.delete("Ñ§ï¿½ï¿½ï¿½ï¿½ï¿½Ú±ï¿½", "Ñ§ï¿½ï¿½ID", data);
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -49,10 +49,10 @@ public class DeleteStudentAttendance implements DatabaseOperation{
 
 		switch(choose) {
 		case 1:
-			deleteStudentAttendance1(data); // É¾³ýµ¥Ìõ¿¼ÇÚ¼ÇÂ¼
+			deleteStudentAttendance1(data); // É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¼ï¿½Â¼
 			break;
 		case 2:
-			deleteStudentAttendance2(data); // É¾³ýÄ³¸öÑ§ÉúµÄËùÓÐ¿¼ÇÚ¼ÇÂ¼
+			deleteStudentAttendance2(data); // É¾ï¿½ï¿½Ä³ï¿½ï¿½Ñ§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¿ï¿½ï¿½Ú¼ï¿½Â¼
 			break;
 		default:
 			System.out.println("ERROR!");

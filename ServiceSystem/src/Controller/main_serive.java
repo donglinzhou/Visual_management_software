@@ -1,6 +1,7 @@
 package Controller;
 
 import java.io.BufferedReader;
+
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
@@ -8,45 +9,35 @@ import java.net.Socket;
 import java.util.Scanner;
 
 import model.*;
-import View.*;
 
-public class main {
+public class main_serive {
     public static void main(String[] args){
-		// TODO ×Ô¶¯Éú³ÉµÄ·½·¨´æ¸ù
-		//ÏÈ´´½¨Ò»¸öcontrollerÀà
 		ParentsController parentsController=new ParentsController();
 		TeacherController teacherController = new TeacherController();
 		DeptController deptController = new DeptController();
-		//ÔÚControllerÀïÃæÏÈÉè¶¨modelºÍView
 		teacherController.setTeachersModel(new Teachers());
-		teacherController.setTeachersView(new TeachersView());
 		parentsController.setParentsModel(new Parents());
-		parentsController.setParentsView(new ParentsView());
 		deptController.setDeptModel(new Dept());
-		deptController.setDeptView(new DeptView());
 		
 		parentsController.setParentsCheckStudentInfoBehavior(new CheckStudentInfoClass());
-		parentsController.getStudentInfoView();
-		
-		parentsController.setParentsCheckStudentGradeInfoBehavior(new CheckStudentGradeInfoClass());
-		parentsController.getStudentGradeInfoView();
-		
+		//parentsController.setParentsCheckStudentGradeInfoBehavior(new CheckStudentGradeInfoClass());
+
 		Socket socket = null;
 	    try {
-	    	socket = new Socket("localhost",8081);//´´½¨Socket, ÇëÇó·þÎñ¶Ë
-	    	System.out.println("¿Í»§¶ËÒÑ¾­Á¬½ÓÉÏ");
+	    	socket = new Socket("localhost",8081);//ï¿½ï¿½ï¿½ï¿½Socket, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	    	System.out.println("ï¿½Í»ï¿½ï¿½ï¿½ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
     		BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
     		PrintStream ps = new PrintStream(socket.getOutputStream());
-    		Scanner scanner = new Scanner(System.in);   // ´´½¨Scanner
-    		System.out.println("ÇëÊäÈëÒ»¸ö×Ö·û´®:");    // ¸ø³öÌáÊ¾ÊäÈë
+    		Scanner scanner = new Scanner(System.in);   // ï¿½ï¿½ï¿½ï¿½Scanner
+    		System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½:");    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½
             scanner.useDelimiter("\r\n");
             String msg = null;
             while( !(msg = scanner.next()).equals("Bye") ){
                 System.out.printf("Send Msg --> %s \n", msg);
-	    		ps.println(msg);//·¢ËÍµ½·þÎñ¶Ë
-	    		ps.flush(); // Á¢¼´·¢ËÍ£¬·ñÔòÐèÒª»ýÀÛµ½Ò»¶¨´óÐ¡²ÅÒ»´ÎÐÔ·¢ËÍ
+	    		ps.println(msg);//ï¿½ï¿½ï¿½Íµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	    		ps.flush(); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½Ûµï¿½Ò»ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ô·ï¿½ï¿½ï¿½
 	    		if((socket.getInputStream().available())==0)
-	    			System.out.println(br.readLine());// ¶ÁÈ¡·þÎñ¶Ë·¢»ØµÄ×Ö·û´®, ´òÓ¡  
+	    			System.out.println(br.readLine());// ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Ë·ï¿½ï¿½Øµï¿½ï¿½Ö·ï¿½ï¿½ï¿½, ï¿½ï¿½Ó¡  
 	    	}
             scanner.close();
             
