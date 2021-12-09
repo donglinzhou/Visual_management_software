@@ -11,13 +11,17 @@ public class CheckStudentConsumptionInfoClass implements CheckStudentConsumption
 
 //	static String ID="15888";//传入的学生ID
 //	static int n=5;
-	static ArrayList<Double>studentInfo= new ArrayList<Double>();
-	static ArrayList<Double>studentInfo3= new ArrayList<Double>();
-	static ArrayList<ArrayList<String>> studentInfo2 = new ArrayList<ArrayList<String>>();//类的全局变量，用来存储返回学生消费记录
-	static ArrayList<ArrayList<String>> studentInfo1 = new ArrayList<ArrayList<String>>();//类的全局变量，用来存储返回学生无用消费记录
+	//static ArrayList<Double>studentInfo= new ArrayList<Double>();
+	//static ArrayList<Double>studentInfo3= new ArrayList<Double>();
+	//static ArrayList<ArrayList<String>> studentInfo2 = new ArrayList<ArrayList<String>>();//类的全局变量，用来存储返回学生消费记录
+	//static ArrayList<ArrayList<String>> studentInfo1 = new ArrayList<ArrayList<String>>();//类的全局变量，用来存储返回学生无用消费记录
 
 	@Override
 	public  ArrayList<Double> checkStudentConsumptionInfo(String ID,int n) {//返回的学生消费记录
+		 ArrayList<Double>studentInfo= new ArrayList<Double>();
+		 ArrayList<Double>studentInfo3= new ArrayList<Double>();
+		 ArrayList<ArrayList<String>> studentInfo2 = new ArrayList<ArrayList<String>>();//类的全局变量，用来存储返回学生消费记录
+		 ArrayList<ArrayList<String>> studentInfo1 = new ArrayList<ArrayList<String>>();//类的全局变量，用来存储返回学生无用消费记录
 
 		//System.out.println("查看学生个人信息");
 		Connection conn = null;

@@ -9,17 +9,17 @@ import java.util.ArrayList;
 
 public class CheckStudentGradeInfoClass implements CheckStudentGradeInfoBehavior {//查询学生学业画像
 	//static String subject="语文";//传入的学生学科
-	static String ID="15888";//传入的学生学科
-	static int n=5;//传入需要查看的最近的考试次数
-	static ArrayList<ArrayList<Integer>>studentInfo = new ArrayList<ArrayList<Integer>>();//存储需要查询的学生学业画像
-	
-	static ArrayList<ArrayList<String>> studentInfo1 = new ArrayList<ArrayList<String>>();//存储无用学生学业画像信息的集合，中转变量
-	static ArrayList<ArrayList<String>> studentInfo2 = new ArrayList<ArrayList<String>>();//存储无用学生学业画像信息的集合，中转变量
+	//static String ID="15888";//传入的学生学科
+	//static int n=5;//传入需要查看的最近的考试次数
 	
 
 	@Override
 	public ArrayList<ArrayList<Integer>> checkStudentGradeInfo(String ID,int n) {//返回学生学业画像
-	
+		 ArrayList<ArrayList<Integer>>studentInfo = new ArrayList<ArrayList<Integer>>();//存储需要查询的学生学业画像
+		
+		 ArrayList<ArrayList<String>> studentInfo1 = new ArrayList<ArrayList<String>>();//存储无用学生学业画像信息的集合，中转变量
+		 ArrayList<ArrayList<String>> studentInfo2 = new ArrayList<ArrayList<String>>();//存储无用学生学业画像信息的集合，中转变量
+		
 		//System.out.println("查看学生个人信息");
 		Connection conn = null;
 		PreparedStatement ps = null;

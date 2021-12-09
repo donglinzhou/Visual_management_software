@@ -15,7 +15,7 @@ public class CheckStudentInfoClass implements CheckStudentInfoBehavior {//查看学
 	
 //	//static int ID=13012;//传入的学生ID
 //	static String ID="13012";
-	static ArrayList<String> studentInfo = new ArrayList<String>();//类的全局变量，用来存储返回学生信息的元组
+//	static 
 //	
 //	 public void setStudentInfo(String ID) {
 //			this.ID=ID;
@@ -23,6 +23,7 @@ public class CheckStudentInfoClass implements CheckStudentInfoBehavior {//查看学
 //	 
 	@Override
 	public ArrayList<String> checkStudentInfo(String ID) {//返回学生信息的元组
+		ArrayList<String> studentInfo = new ArrayList<String>();//类的全局变量，用来存储返回学生信息的元组
 		//需要查看：姓名，年龄，性别，入学年份、政治面貌、班主任姓名
 		//System.out.println("查看学生个人信息");
 		Connection conn = null;
@@ -37,7 +38,7 @@ public class CheckStudentInfoClass implements CheckStudentInfoBehavior {//查看学
 	        }
 		
 		try {
-		    conn =DriverManager.getConnection("jdbc:mysql://172.16.107.100:3306/软工小组项目","邹振庭","1234");
+		    conn =DriverManager.getConnection("jdbc:mysql://10.22.27.7:3306/软工小组项目","邹振庭","1234");
 		       //此处软工项目小组为mysql提前建立的数据库，邹振庭为用户名，最后为密码：1234
 		       System.out.println("连接成功");
 		      //一下测试输出数据库内数据，提前在数据库内建立user表，添加num和name
