@@ -8,22 +8,23 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class CheckStudentTrackInfoClass implements CheckStudentTrackInfoBehavior {
-//	static String ID="15888";//传入的学生学科
-//	static int n=5;//传入需要查看的最近的考试次数
-//	
-//	static ArrayList<Integer> studentInfo =new ArrayList<Integer>();//存储需要查询的学生学业画像
-//	static ArrayList<ArrayList<String>> studentInfo1 = new ArrayList<ArrayList<String>>();//存储无用学生学业画像信息的集合，中转变量
-//	static ArrayList<ArrayList<String>> studentInfo2 = new ArrayList<ArrayList<String>>();//存储无用学生学业画像信息的集合，中转变量
-//	static ArrayList<ArrayList<Integer>>studentInfo3 = new ArrayList<ArrayList<Integer>>();
+	//static String ID="15888";//传入的学生学科
+	//static int n=5;//传入需要查看的最近的考试次数
+	
+	static ArrayList<Integer> studentInfo =new ArrayList<Integer>();//存储需要查询的学生学业画像
+	static ArrayList<ArrayList<String>> studentInfo1 = new ArrayList<ArrayList<String>>();//存储无用学生学业画像信息的集合，中转变量
+	static ArrayList<ArrayList<String>> studentInfo2 = new ArrayList<ArrayList<String>>();//存储无用学生学业画像信息的集合，中转变量
+	static ArrayList<ArrayList<Integer>>studentInfo3 = new ArrayList<ArrayList<Integer>>();
 	
 
 	@Override
 	public  ArrayList<Integer> checkStudentTrackInfo(String ID,int n) {
+		 ArrayList<Integer> studentInfo =new ArrayList<Integer>();//存储需要查询的学生学业画像
+		 ArrayList<ArrayList<String>> studentInfo1 = new ArrayList<ArrayList<String>>();//存储无用学生学业画像信息的集合，中转变量
+		 ArrayList<ArrayList<String>> studentInfo2 = new ArrayList<ArrayList<String>>();//存储无用学生学业画像信息的集合，中转变量
+		 ArrayList<ArrayList<Integer>>studentInfo3 = new ArrayList<ArrayList<Integer>>();
+		
 		// TODO 鑷姩鐢熸垚鐨勬柟娉曞瓨鏍�
-		ArrayList<Integer> studentInfo =new ArrayList<Integer>();//存储需要查询的学生学业画像
-		ArrayList<ArrayList<String>> studentInfo1 = new ArrayList<ArrayList<String>>();//存储无用学生学业画像信息的集合，中转变量
-		ArrayList<ArrayList<String>> studentInfo2 = new ArrayList<ArrayList<String>>();//存储无用学生学业画像信息的集合，中转变量
-		ArrayList<ArrayList<Integer>>studentInfo3 = new ArrayList<ArrayList<Integer>>();
 		//System.out.println("查看学生个人信息");
 		Connection conn = null;
 		PreparedStatement ps = null;
@@ -40,9 +41,9 @@ public class CheckStudentTrackInfoClass implements CheckStudentTrackInfoBehavior
 	        }
 		
 		try {
-			//String url = "jdbc:mysql://172.16.107.100:3306/软工小组项目";  //地址线路1
-	        String url = "jdbc:mysql://10.22.27.7:3306/软工小组项目";   //地址线路2
-		    conn =
+			String url = "jdbc:mysql://172.16.107.100:3306/软工小组项目";  //地址线路1
+	        //String url = "jdbc:mysql://10.22.27.7:3306/软工小组项目";   //地址线路2
+			conn =
 		       DriverManager.getConnection(url,"林鑫灿","1234");
 		       //此处软工项目小组为mysql提前建立的数据库，邹振庭为用户名，最后为密码：1234
 
@@ -263,7 +264,8 @@ public class CheckStudentTrackInfoClass implements CheckStudentTrackInfoBehavior
 			         }
 		
 		    }
-		
+		if(studentInfo2.size()<n) 
+			n=studentInfo2.size();
 		for(int c=0;c<n;c++) {
 			int sum;
 		     sum=(temp0.get(c)+temp1.get(c)+temp2.get(c)+temp3.get(c)+temp4.get(c)
@@ -271,6 +273,7 @@ public class CheckStudentTrackInfoClass implements CheckStudentTrackInfoBehavior
 		     studentInfo.add(sum);
 		  
 		}
+		
 		
 		//System.out.println(studentInfo);
 		return studentInfo;

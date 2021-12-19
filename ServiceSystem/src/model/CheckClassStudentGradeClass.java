@@ -19,8 +19,8 @@ public class CheckClassStudentGradeClass implements CheckClassStudentGradeBehavi
 		Connection conn = null;
 		String driver = "com.mysql.cj.jdbc.Driver";
 		
-		//String url = "jdbc:mysql://172.16.107.100:3306/软工小组项目";		
-		String url = "jdbc:mysql://10.22.27.7:3306/软工小组项目";		
+		String url = "jdbc:mysql://172.16.107.100:3306/软工小组项目";		
+		//String url = "jdbc:mysql://10.22.27.7:3306/软工小组项目";		
         String user = "林鑫灿";       
         String password = "1234";
 		
