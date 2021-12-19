@@ -94,7 +94,7 @@ public class ClientThread {
             	//查看学生考勤记录
 				oos.writeObject(code);
 				oos.writeObject(list);
-				
+				oos.writeObject(login);;
 				ArrayList<Integer> object = (ArrayList<Integer>) ois.readObject();
 				System.out.println(object);  
             	break;
