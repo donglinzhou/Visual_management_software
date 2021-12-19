@@ -149,119 +149,129 @@ public class CheckStudentTrackInfoClass implements CheckStudentTrackInfoBehavior
 		while (j<studentInfo2.size()&&k<n) {
 			
 			
-				if(studentInfo2.get(j).get(3).equals("语文")) {
-					if(!(studentInfo2.get(j).get(4).equals(FLAG))) {
-						k++;
-						FLAG=studentInfo2.get(j).get(4);
-					}
-					temp0.set(k,Integer.parseInt(studentInfo2.get(j).get(5)));
-					//studentInfo.get(0).set(k, Integer.parseInt(studentInfo2.get(j).get(5)));
-					//System.out.println(studentInfo);
-					j++;
-					
-					
-					continue;	
+			if(studentInfo2.get(j).get(3).equals("语文")) {
+				if(!(studentInfo2.get(j).get(4).equals(FLAG))) {
+					k++;
+					FLAG=studentInfo2.get(j).get(4);
+					if (k==n) break;
 				}
-				   
+				temp0.set(k,Integer.parseInt(studentInfo2.get(j).get(5)));
+				//studentInfo.get(0).set(k, Integer.parseInt(studentInfo2.get(j).get(5)));
+				//System.out.println(studentInfo);
+				j++;
 				
-				if(studentInfo2.get(j).get(3).equals("数学")) {
-					if(!(studentInfo2.get(j).get(4).equals(FLAG))) {
-						k++;
-						FLAG=studentInfo2.get(j).get(4);
-					}
-					//studentInfo.get(1).set(k, Integer.parseInt(studentInfo2.get(j).get(5)));
-					temp1.set(k,Integer.parseInt(studentInfo2.get(j).get(5)));
-					
-					j++;
-					continue;
+				
+				continue;	
+			}
+			   
+			
+			if(studentInfo2.get(j).get(3).equals("数学")) {
+				if(!(studentInfo2.get(j).get(4).equals(FLAG))) {
+					k++;
+					FLAG=studentInfo2.get(j).get(4);
+					if (k==n) break;
 				}
+				//studentInfo.get(1).set(k, Integer.parseInt(studentInfo2.get(j).get(5)));
+				temp1.set(k,Integer.parseInt(studentInfo2.get(j).get(5)));
 				
-				if(studentInfo2.get(j).get(3).equals("英语")) {
-					if(!(studentInfo2.get(j).get(4).equals(FLAG))) {
-						k++;
-						FLAG=studentInfo2.get(j).get(4);
-					}
-					//studentInfo.get(2).set(k, Integer.parseInt(studentInfo2.get(j).get(5)));
-					temp2.set(k,Integer.parseInt(studentInfo2.get(j).get(5)));
-					j++;
-					continue;
+				j++;
+				continue;
+			}
+			
+			if(studentInfo2.get(j).get(3).equals("英语")) {
+				if(!(studentInfo2.get(j).get(4).equals(FLAG))) {
+					k++;
+					FLAG=studentInfo2.get(j).get(4);
+					if (k==n) break;
 				}
-				
-				
-				if(studentInfo2.get(j).get(3).equals("物理")) {
-					if(!(studentInfo2.get(j).get(4).equals(FLAG))) {
-						k++;
-						FLAG=studentInfo2.get(j).get(4);
-					}
-					//studentInfo.get(3).set(k, Integer.parseInt(studentInfo2.get(j).get(5)));
-					temp3.set(k,Integer.parseInt(studentInfo2.get(j).get(5)));
-					j++;
-					continue;
+				//studentInfo.get(2).set(k, Integer.parseInt(studentInfo2.get(j).get(5)));
+				temp2.set(k,Integer.parseInt(studentInfo2.get(j).get(5)));
+				j++;
+				continue;
+			}
+			
+			
+			if(studentInfo2.get(j).get(3).equals("物理")) {
+				if(!(studentInfo2.get(j).get(4).equals(FLAG))) {
+					k++;
+					FLAG=studentInfo2.get(j).get(4);
+					if (k==n) break;
 				}
-				
-				if(studentInfo2.get(j).get(3).equals("化学")) {
-					if(!(studentInfo2.get(j).get(4).equals(FLAG))) {
-						k++;
-						FLAG=studentInfo2.get(j).get(4);
-					}
-					//studentInfo.get(4).set(k, Integer.parseInt(studentInfo2.get(j).get(5)));
-					temp4.set(k,Integer.parseInt(studentInfo2.get(j).get(5)));
-					j++;
-					continue;
+				//studentInfo.get(3).set(k, Integer.parseInt(studentInfo2.get(j).get(5)));
+				temp3.set(k,Integer.parseInt(studentInfo2.get(j).get(5)));
+				j++;
+				continue;
+			}
+			
+			if(studentInfo2.get(j).get(3).equals("化学")) {
+				if(!(studentInfo2.get(j).get(4).equals(FLAG))) {
+					k++;
+					FLAG=studentInfo2.get(j).get(4);
+					if (k==n) break;
 				}
-				
-				if(studentInfo2.get(j).get(3).equals("生物")) {
-					if(!(studentInfo2.get(j).get(4).equals(FLAG))) {
-						k++;
-						FLAG=studentInfo2.get(j).get(4);
-					}
-					//studentInfo.get(5).set(k, Integer.parseInt(studentInfo2.get(j).get(5)));
-					temp5.set(k,Integer.parseInt(studentInfo2.get(j).get(5)));
-					j++;
-					continue;
+				//studentInfo.get(4).set(k, Integer.parseInt(studentInfo2.get(j).get(5)));
+				temp4.set(k,Integer.parseInt(studentInfo2.get(j).get(5)));
+				j++;
+				continue;
+			}
+			
+			if(studentInfo2.get(j).get(3).equals("生物")) {
+				if(!(studentInfo2.get(j).get(4).equals(FLAG))) {
+					k++;
+					FLAG=studentInfo2.get(j).get(4);
+					if (k==n) break;
 				}
-				
-				if(studentInfo2.get(j).get(3).equals("历史")) {
-					if(!(studentInfo2.get(j).get(4).equals(FLAG))) {
-						k++;
-						FLAG=studentInfo2.get(j).get(4);
-					}
-					//studentInfo.get(6).set(k, Integer.parseInt(studentInfo2.get(j).get(5)));
-					temp6.set(k,Integer.parseInt(studentInfo2.get(j).get(5)));
-					j++;
-					continue;
+				//studentInfo.get(5).set(k, Integer.parseInt(studentInfo2.get(j).get(5)));
+				temp5.set(k,Integer.parseInt(studentInfo2.get(j).get(5)));
+				j++;
+				continue;
+			}
+			
+			if(studentInfo2.get(j).get(3).equals("历史")) {
+				if(!(studentInfo2.get(j).get(4).equals(FLAG))) {
+					k++;
+					FLAG=studentInfo2.get(j).get(4);
+					if (k==n) break;
 				}
-				
-				if(studentInfo2.get(j).get(3).equals("地理")) {
-					if(!(studentInfo2.get(j).get(4).equals(FLAG))) {
-						k++;
-						FLAG=studentInfo2.get(j).get(4);
-					}
-					//studentInfo.get(7).set(k, Integer.parseInt(studentInfo2.get(j).get(5)));
-					temp7.set(k,Integer.parseInt(studentInfo2.get(j).get(5)));
-					j++;
-					continue;
+				//studentInfo.get(6).set(k, Integer.parseInt(studentInfo2.get(j).get(5)));
+				temp6.set(k,Integer.parseInt(studentInfo2.get(j).get(5)));
+				j++;
+				continue;
+			}
+			
+			if(studentInfo2.get(j).get(3).equals("地理")) {
+				if(!(studentInfo2.get(j).get(4).equals(FLAG))) {
+					k++;
+					FLAG=studentInfo2.get(j).get(4);
+					if (k==n) break;
 				}
-				
-				if(studentInfo2.get(j).get(3).equals("政治")) {
-					if(!(studentInfo2.get(j).get(4).equals(FLAG))) {
-						k++;
-						FLAG=studentInfo2.get(j).get(4);
-					}
-					//studentInfo.get(8).set(k, Integer.parseInt(studentInfo2.get(j).get(5)));
-					temp8.set(k,Integer.parseInt(studentInfo2.get(j).get(5)));
-					j++;
-					continue;
+				//studentInfo.get(7).set(k, Integer.parseInt(studentInfo2.get(j).get(5)));
+				temp7.set(k,Integer.parseInt(studentInfo2.get(j).get(5)));
+				j++;
+				continue;
+			}
+			
+			if(studentInfo2.get(j).get(3).equals("政治")) {
+				if(!(studentInfo2.get(j).get(4).equals(FLAG))) {
+					k++;
+					FLAG=studentInfo2.get(j).get(4);
+					if (k==n) break;
 				}
-				
-				else {
-					if(!(studentInfo2.get(j).get(4).equals(FLAG))) {
-						k++;
-						FLAG=studentInfo2.get(j).get(4);
-					}
-					j++;
-					continue;
-			         }
+				//studentInfo.get(8).set(k, Integer.parseInt(studentInfo2.get(j).get(5)));
+				temp8.set(k,Integer.parseInt(studentInfo2.get(j).get(5)));
+				j++;
+				continue;
+			}
+			
+			else {
+				if(!(studentInfo2.get(j).get(4).equals(FLAG))) {
+					k++;
+					FLAG=studentInfo2.get(j).get(4);
+					if (k==n) break;
+				}
+				j++;
+				continue;
+		         }
 		
 		    }
 		if(studentInfo2.size()<n) 

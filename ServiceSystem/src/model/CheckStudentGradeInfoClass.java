@@ -9,20 +9,19 @@ import java.util.ArrayList;
 
 public class CheckStudentGradeInfoClass implements CheckStudentGradeInfoBehavior {//查询学生学业画像
 	//static String subject="语文";//传入的学生学科
-//	static String ID="15888";//传入的学生学科
-//	static int n=5;//传入需要查看的最近的考试次数
-//	static ArrayList<ArrayList<Integer>>studentInfo = new ArrayList<ArrayList<Integer>>();//存储需要查询的学生学业画像
-//	
-//	static ArrayList<ArrayList<String>> studentInfo1 = new ArrayList<ArrayList<String>>();//存储无用学生学业画像信息的集合，中转变量
-//	static ArrayList<ArrayList<String>> studentInfo2 = new ArrayList<ArrayList<String>>();//存储无用学生学业画像信息的集合，中转变量
+	//static String ID="15888";//传入的学生学科
+	//static int n=5;//传入需要查看的最近的考试次数
 	
 
 	@Override
 	public ArrayList<ArrayList<Integer>> checkStudentGradeInfo(String ID,int n) {//返回学生学业画像
-		ArrayList<ArrayList<Integer>>studentInfo = new ArrayList<ArrayList<Integer>>();//存储需要查询的学生学业画像
+//		ID="15888";
+//		n=1;
+		 ArrayList<ArrayList<Integer>>studentInfo = new ArrayList<ArrayList<Integer>>();//存储需要查询的学生学业画像
 		
-		ArrayList<ArrayList<String>> studentInfo1 = new ArrayList<ArrayList<String>>();//存储无用学生学业画像信息的集合，中转变量
-		ArrayList<ArrayList<String>> studentInfo2 = new ArrayList<ArrayList<String>>();//存储无用学生学业画像信息的集合，中转变量
+		 ArrayList<ArrayList<String>> studentInfo1 = new ArrayList<ArrayList<String>>();//存储无用学生学业画像信息的集合，中转变量
+		 ArrayList<ArrayList<String>> studentInfo2 = new ArrayList<ArrayList<String>>();//存储无用学生学业画像信息的集合，中转变量
+		
 		//System.out.println("查看学生个人信息");
 		Connection conn = null;
 		PreparedStatement ps = null;
@@ -39,10 +38,10 @@ public class CheckStudentGradeInfoClass implements CheckStudentGradeInfoBehavior
 	        }
 		
 		try {
-			//String url = "jdbc:mysql://172.16.107.100:3306/软工小组项目";  //地址线路1
-	        String url = "jdbc:mysql://10.22.27.7:3306/软工小组项目";   //地址线路2
+			String url = "jdbc:mysql://172.16.107.100:3306/软工小组项目";  //地址线路1
+	        //String url = "jdbc:mysql://10.22.27.7:3306/软工小组项目";   //地址线路2
 		    conn =
-		       DriverManager.getConnection(url,"邹振庭","1234");
+		       DriverManager.getConnection(url,"林鑫灿","1234");
 		       //此处软工项目小组为mysql提前建立的数据库，邹振庭为用户名，最后为密码：1234
 
 		   System.out.println("连接成功");
@@ -147,6 +146,8 @@ public class CheckStudentGradeInfoClass implements CheckStudentGradeInfoBehavior
 			temp8.add(0);
 		}
 		
+		
+		
 		while (j<studentInfo2.size()&&k<n) {
 			
 			
@@ -154,6 +155,7 @@ public class CheckStudentGradeInfoClass implements CheckStudentGradeInfoBehavior
 					if(!(studentInfo2.get(j).get(4).equals(FLAG))) {
 						k++;
 						FLAG=studentInfo2.get(j).get(4);
+						if (k==n) break;
 					}
 					temp0.set(k,Integer.parseInt(studentInfo2.get(j).get(5)));
 					//studentInfo.get(0).set(k, Integer.parseInt(studentInfo2.get(j).get(5)));
@@ -169,6 +171,7 @@ public class CheckStudentGradeInfoClass implements CheckStudentGradeInfoBehavior
 					if(!(studentInfo2.get(j).get(4).equals(FLAG))) {
 						k++;
 						FLAG=studentInfo2.get(j).get(4);
+						if (k==n) break;
 					}
 					//studentInfo.get(1).set(k, Integer.parseInt(studentInfo2.get(j).get(5)));
 					temp1.set(k,Integer.parseInt(studentInfo2.get(j).get(5)));
@@ -181,6 +184,7 @@ public class CheckStudentGradeInfoClass implements CheckStudentGradeInfoBehavior
 					if(!(studentInfo2.get(j).get(4).equals(FLAG))) {
 						k++;
 						FLAG=studentInfo2.get(j).get(4);
+						if (k==n) break;
 					}
 					//studentInfo.get(2).set(k, Integer.parseInt(studentInfo2.get(j).get(5)));
 					temp2.set(k,Integer.parseInt(studentInfo2.get(j).get(5)));
@@ -193,6 +197,7 @@ public class CheckStudentGradeInfoClass implements CheckStudentGradeInfoBehavior
 					if(!(studentInfo2.get(j).get(4).equals(FLAG))) {
 						k++;
 						FLAG=studentInfo2.get(j).get(4);
+						if (k==n) break;
 					}
 					//studentInfo.get(3).set(k, Integer.parseInt(studentInfo2.get(j).get(5)));
 					temp3.set(k,Integer.parseInt(studentInfo2.get(j).get(5)));
@@ -204,6 +209,7 @@ public class CheckStudentGradeInfoClass implements CheckStudentGradeInfoBehavior
 					if(!(studentInfo2.get(j).get(4).equals(FLAG))) {
 						k++;
 						FLAG=studentInfo2.get(j).get(4);
+						if (k==n) break;
 					}
 					//studentInfo.get(4).set(k, Integer.parseInt(studentInfo2.get(j).get(5)));
 					temp4.set(k,Integer.parseInt(studentInfo2.get(j).get(5)));
@@ -215,6 +221,7 @@ public class CheckStudentGradeInfoClass implements CheckStudentGradeInfoBehavior
 					if(!(studentInfo2.get(j).get(4).equals(FLAG))) {
 						k++;
 						FLAG=studentInfo2.get(j).get(4);
+						if (k==n) break;
 					}
 					//studentInfo.get(5).set(k, Integer.parseInt(studentInfo2.get(j).get(5)));
 					temp5.set(k,Integer.parseInt(studentInfo2.get(j).get(5)));
@@ -226,6 +233,7 @@ public class CheckStudentGradeInfoClass implements CheckStudentGradeInfoBehavior
 					if(!(studentInfo2.get(j).get(4).equals(FLAG))) {
 						k++;
 						FLAG=studentInfo2.get(j).get(4);
+						if (k==n) break;
 					}
 					//studentInfo.get(6).set(k, Integer.parseInt(studentInfo2.get(j).get(5)));
 					temp6.set(k,Integer.parseInt(studentInfo2.get(j).get(5)));
@@ -237,6 +245,7 @@ public class CheckStudentGradeInfoClass implements CheckStudentGradeInfoBehavior
 					if(!(studentInfo2.get(j).get(4).equals(FLAG))) {
 						k++;
 						FLAG=studentInfo2.get(j).get(4);
+						if (k==n) break;
 					}
 					//studentInfo.get(7).set(k, Integer.parseInt(studentInfo2.get(j).get(5)));
 					temp7.set(k,Integer.parseInt(studentInfo2.get(j).get(5)));
@@ -248,6 +257,7 @@ public class CheckStudentGradeInfoClass implements CheckStudentGradeInfoBehavior
 					if(!(studentInfo2.get(j).get(4).equals(FLAG))) {
 						k++;
 						FLAG=studentInfo2.get(j).get(4);
+						if (k==n) break;
 					}
 					//studentInfo.get(8).set(k, Integer.parseInt(studentInfo2.get(j).get(5)));
 					temp8.set(k,Integer.parseInt(studentInfo2.get(j).get(5)));
@@ -259,6 +269,7 @@ public class CheckStudentGradeInfoClass implements CheckStudentGradeInfoBehavior
 					if(!(studentInfo2.get(j).get(4).equals(FLAG))) {
 						k++;
 						FLAG=studentInfo2.get(j).get(4);
+						if (k==n) break;
 					}
 					j++;
 					continue;
@@ -275,6 +286,10 @@ public class CheckStudentGradeInfoClass implements CheckStudentGradeInfoBehavior
 		studentInfo.add(temp7);
 		studentInfo.add(temp8);
 		//System.out.println(studentInfo);
+		
+		
+		
+		
 
 		return studentInfo;
 	}
