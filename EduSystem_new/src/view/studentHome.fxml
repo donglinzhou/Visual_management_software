@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<BorderPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1250.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.StudentController">
+   <top>
+      <AnchorPane prefHeight="71.0" prefWidth="900.0" style="-fx-background-color: #a5bc9d; -fx-border-color: black; -fx-border-width: 1px;" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="headTxt" alignment="CENTER" layoutX="383.0" layoutY="5.0" prefHeight="61.0" prefWidth="156.0" style="-fx-background-color: #7da79a;" text="学生端" textFill="#e8e6e6" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="360.0" AnchorPane.rightAnchor="360.0" AnchorPane.topAnchor="5.0">
+               <font>
+                  <Font size="40.0" />
+               </font>
+            </Label>
+         </children></AnchorPane>
+   </top>
+   <bottom>
+      <AnchorPane prefHeight="51.0" prefWidth="900.0" style="-fx-background-color: #a5bc9d; -fx-border-color: black; -fx-border-width: 1px;" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="logOut" layoutX="767.0" layoutY="2.0" mnemonicParsing="false" onAction="#logOutClick" prefHeight="49.0" prefWidth="133.0" style="-fx-background-color: #7da79a;" text="退出登录" textFill="#f5eeee" AnchorPane.bottomAnchor="1.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
+               <font>
+                  <Font size="22.0" />
+               </font></Button>
+         </children></AnchorPane>
+   </bottom>
+   <center>
+      <AnchorPane prefHeight="524.0" prefWidth="677.0" style="-fx-background-color: #e3f2de; -fx-border-color: white; -fx-border-width: 1px;" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane layoutX="21.0" layoutY="21.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="21.0" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="21.0" AnchorPane.topAnchor="21.0">
+               <children>
+                  <GridPane alignment="CENTER" layoutX="41.0" layoutY="89.0" prefHeight="311.0" prefWidth="703.0" style="-fx-background-color: white; -fx-border-color: #7da79a; -fx-border-width: 8px;" AnchorPane.leftAnchor="41.0" AnchorPane.topAnchor="89.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="145.0" minWidth="10.0" prefWidth="131.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="255.0" minWidth="10.0" prefWidth="163.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="170.0" minWidth="10.0" prefWidth="45.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="188.0" minWidth="10.0" prefWidth="148.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="247.0" minWidth="10.0" prefWidth="182.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="500.0" maxWidth="1000.0" prefHeight="300.0" prefWidth="400.0" style="-fx-background-color: #c6b9b9;" text="姓名：" textFill="#fdfaff">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="500.0" maxWidth="1000.0" prefHeight="300.0" prefWidth="400.0" style="-fx-background-color: #c6b9b9;" text="性别：" textFill="#fdfaff" GridPane.rowIndex="1">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="500.0" maxWidth="1000.0" prefHeight="300.0" prefWidth="400.0" style="-fx-background-color: #c6b9b9;" text="学号：" textFill="#fdfaff" GridPane.columnIndex="3">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label fx:id="studentName" alignment="CENTER" contentDisplay="TOP" prefHeight="300.0" prefWidth="400.0" style="-fx-background-color: #E0E0E0;" GridPane.columnIndex="1">
+                           <GridPane.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </GridPane.margin>
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="500.0" maxWidth="1000.0" prefHeight="300.0" prefWidth="400.0" style="-fx-background-color: #c6b9b9;" text="年龄：" textFill="#fdfaff" GridPane.rowIndex="2">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="500.0" maxWidth="1000.0" prefHeight="300.0" prefWidth="400.0" style="-fx-background-color: #c6b9b9;" text="班主任：" textFill="#fdfaff" GridPane.rowIndex="3">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="500.0" maxWidth="1000.0" prefHeight="300.0" prefWidth="400.0" style="-fx-background-color: #c6b9b9;" text="入学年份：" textFill="#fdfaff" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="500.0" maxWidth="1000.0" prefHeight="300.0" prefWidth="400.0" style="-fx-background-color: #c6b9b9;" text="入学排名：" textFill="#fdfaff" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="500.0" maxWidth="1000.0" prefHeight="300.0" prefWidth="400.0" style="-fx-background-color: #c6b9b9;" text="政治面貌：" textFill="#fdfaff" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label fx:id="studentGender" alignment="CENTER" contentDisplay="TOP" prefHeight="300.0" prefWidth="400.0" style="-fx-background-color: #E0E0E0;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </GridPane.margin>
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="studentAge" alignment="CENTER" contentDisplay="TOP" prefHeight="300.0" prefWidth="400.0" style="-fx-background-color: #E0E0E0;" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <GridPane.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </GridPane.margin>
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="studentHeadTeacher" alignment="CENTER" contentDisplay="TOP" prefHeight="300.0" prefWidth="400.0" style="-fx-background-color: #E0E0E0;" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                           <GridPane.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </GridPane.margin>
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="studentId" alignment="CENTER" contentDisplay="TOP" prefHeight="300.0" prefWidth="400.0" style="-fx-background-color: #E0E0E0;" GridPane.columnIndex="4">
+                           <GridPane.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </GridPane.margin>
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="studentEnrollmentY" alignment="CENTER" contentDisplay="TOP" prefHeight="300.0" prefWidth="400.0" style="-fx-background-color: #E0E0E0;" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </GridPane.margin>
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="enrollmentRanking" alignment="CENTER" contentDisplay="TOP" prefHeight="300.0" prefWidth="400.0" style="-fx-background-color: #E0E0E0;" GridPane.columnIndex="4" GridPane.rowIndex="2">
+                           <GridPane.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </GridPane.margin>
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="studentPolitics" alignment="CENTER" contentDisplay="TOP" prefHeight="300.0" prefWidth="400.0" style="-fx-background-color: #E0E0E0;" GridPane.columnIndex="4" GridPane.rowIndex="3">
+                           <GridPane.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </GridPane.margin>
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </GridPane>
+                  <Label fx:id="ageTxt" alignment="CENTER" contentDisplay="CENTER" layoutX="764.0" layoutY="108.0" text="学生个人信息" textFill="#c6b9b9" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="108.0">
+                     <font>
+                        <Font size="33.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="810.0" layoutY="170.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="54.835052490234375" AnchorPane.topAnchor="170.0">
+                     <image>
+                        <Image url="@../image/user_pic.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </center>
+   <left>
+      <VBox prefHeight="525.0" prefWidth="219.0" style="-fx-background-color: #d9ead3; -fx-border-color: black;">
+         <children>
+            <Button fx:id="infoBtn" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#infoBtnClick" prefHeight="77.0" prefWidth="300.0" style="-fx-background-color: #7da79a; -fx-border-color: white; -fx-border-width: 2px;" text="学生个人信息">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Button>
+            <Button fx:id="growingBtn" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#growingBtnClick" prefHeight="77.0" prefWidth="300.0" style="-fx-background-color: #7da79a; -fx-border-color: white; -fx-border-width: 2px;" text="学生成长档案" textFill="#fcf8f8">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Button>
+            <Button fx:id="attendanceBtn" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#attendanceBtnClick" prefHeight="77.0" prefWidth="300.0" style="-fx-background-color: #7da79a; -fx-border-color: white; -fx-border-width: 2px;" text="学生考勤记录" textFill="WHITE">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Button>
+            <Button fx:id="consumptionBtn" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#consumptionBtnClick" prefHeight="77.0" prefWidth="300.0" style="-fx-background-color: #7da79a; -fx-border-color: white; -fx-border-width: 2px;" text="学生消费记录" textFill="#fcf8f8">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Button>
+            <Button fx:id="scoreBtn" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#scoreBtnClick" prefHeight="77.0" prefWidth="300.0" style="-fx-background-color: #7da79a; -fx-border-color: white; -fx-border-width: 2px;" text="学生学业画像" textFill="#fcf8f8">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+   </left>
+</BorderPane>

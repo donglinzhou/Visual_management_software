@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1250.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.ManagerController">
+   <top>
+      <AnchorPane prefHeight="71.0" prefWidth="900.0" style="-fx-background-color: #a5bc9d; -fx-border-color: black; -fx-border-width: 1px;" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="headTxt" alignment="CENTER" layoutX="383.0" layoutY="5.0" prefHeight="61.0" prefWidth="156.0" style="-fx-background-color: #7da79a;" text="教务端" textFill="#e8e6e6" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="360.0" AnchorPane.rightAnchor="360.0" AnchorPane.topAnchor="5.0">
+               <font>
+                  <Font size="40.0" />
+               </font>
+            </Label>
+         </children></AnchorPane>
+   </top>
+   <bottom>
+      <AnchorPane prefHeight="51.0" prefWidth="900.0" style="-fx-background-color: #a5bc9d; -fx-border-color: black; -fx-border-width: 1px;" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="logOut" layoutX="767.0" layoutY="2.0" mnemonicParsing="false" onAction="#logOutClick" prefHeight="49.0" prefWidth="133.0" style="-fx-background-color: #7da79a;" text="退出登录" textFill="#f5eeee" AnchorPane.bottomAnchor="1.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
+               <font>
+                  <Font size="22.0" />
+               </font></Button>
+         </children></AnchorPane>
+   </bottom>
+   <center>
+      <AnchorPane prefHeight="524.0" prefWidth="677.0" style="-fx-background-color: #e3f2de; -fx-border-color: white; -fx-border-width: 1px;">
+         <children>
+            <AnchorPane layoutX="21.0" layoutY="21.0" prefHeight="644.0" prefWidth="681.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <PieChart fx:id="absenceTypes" layoutX="14.0" layoutY="102.0" title="缺勤类型占比图" />
+                  <BarChart fx:id="absenceNumberClass" layoutX="515.0" layoutY="102.0" title="班级缺勤人数统计图">
+                    <xAxis>
+                      <CategoryAxis fx:id="lineXAxisClassId" animated="false" label="班级" side="BOTTOM" />
+                    </xAxis>
+                    <yAxis>
+                      <NumberAxis fx:id="lineYAxisNumber" label="人数" side="LEFT" />
+                    </yAxis>
+                  </BarChart>
+                  <GridPane layoutX="156.0" layoutY="10.0" prefHeight="75.0" prefWidth="506.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="158.0" minWidth="10.0" prefWidth="99.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="158.0" minWidth="10.0" prefWidth="14.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="121.0" minWidth="0.0" prefWidth="94.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="98.0" minWidth="10.0" prefWidth="52.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="125.0" minWidth="10.0" prefWidth="79.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="114.0" minWidth="10.0" prefWidth="54.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="128.0" minWidth="10.0" prefWidth="83.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="112.0" minWidth="10.0" prefWidth="51.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints maxHeight="39.0" minHeight="10.0" prefHeight="39.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="17.0" minHeight="5.0" prefHeight="5.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="45.0" prefWidth="126.0" style="-fx-background-color: #E5E5E5;" text="开始日期" />
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="45.0" prefWidth="126.0" style="-fx-background-color: #E5E5E5;" text="日" GridPane.columnIndex="7" GridPane.rowIndex="2" />
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="45.0" prefWidth="126.0" style="-fx-background-color: #E5E5E5;" text="日" GridPane.columnIndex="7" />
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="45.0" prefWidth="126.0" style="-fx-background-color: #E5E5E5;" text="月" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="45.0" prefWidth="126.0" style="-fx-background-color: #E5E5E5;" text="月" GridPane.columnIndex="5" />
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="45.0" prefWidth="126.0" style="-fx-background-color: #E5E5E5;" text="年" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="45.0" prefWidth="126.0" style="-fx-background-color: #E5E5E5;" text="终止日期" GridPane.rowIndex="2" />
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="45.0" prefWidth="126.0" style="-fx-background-color: #E5E5E5;" text="年" GridPane.columnIndex="3" />
+                        <MenuButton fx:id="classAttendanceEndY" mnemonicParsing="false" prefHeight="36.0" prefWidth="91.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                          <items>
+                              <MenuItem mnemonicParsing="false" onAction="#classAttendanceEndYClick" text="2019" />
+                              <MenuItem mnemonicParsing="false" onAction="#classAttendanceEndYClick" text="2018" />
+                              <MenuItem mnemonicParsing="false" onAction="#classAttendanceEndYClick" text="2017" />
+                              <MenuItem mnemonicParsing="false" onAction="#classAttendanceEndYClick" text="2016" />
+                              <MenuItem mnemonicParsing="false" onAction="#classAttendanceEndYClick" text="2015" />
+                              <MenuItem mnemonicParsing="false" onAction="#classAttendanceEndYClick" text="2014" />
+                          </items>
+                        </MenuButton>
+                        <MenuButton fx:id="classAttendanceStartM" mnemonicParsing="false" prefHeight="36.0" prefWidth="79.0" GridPane.columnIndex="4">
+                           <items>
+                              <MenuItem mnemonicParsing="false" onAction="#classAttendanceStartMClick" text="01" />
+                              <MenuItem mnemonicParsing="false" onAction="#classAttendanceStartMClick" text="02" />
+                              <MenuItem mnemonicParsing="false" onAction="#classAttendanceStartMClick" text="03" />
+                              <MenuItem mnemonicParsing="false" onAction="#classAttendanceStartMClick" text="04" />
+                              <MenuItem mnemonicParsing="false" onAction="#classAttendanceStartMClick" text="05" />
+                              <MenuItem mnemonicParsing="false" onAction="#classAttendanceStartMClick" text="06" />
+                              <MenuItem mnemonicParsing="false" onAction="#classAttendanceStartMClick" text="07" />
+                              <MenuItem mnemonicParsing="false" onAction="#classAttendanceStartMClick" text="08" />
+                              <MenuItem mnemonicParsing="false" onAction="#classAttendanceStartMClick" text="09" />
+                              <MenuItem mnemonicParsing="false" onAction="#classAttendanceStartMClick" text="10" />
+                              <MenuItem mnemonicParsing="false" onAction="#classAttendanceStartMClick" text="11" />
+                              <MenuItem mnemonicParsing="false" onAction="#classAttendanceStartMClick" text="12" />
+                           </items>
+                        </MenuButton>
+                        <MenuButton fx:id="classAttendanceEndD" mnemonicParsing="false" prefHeight="36.0" prefWidth="84.0" GridPane.columnIndex="6" GridPane.rowIndex="2">
+                           <items>
+                              <MenuItem mnemonicParsing="false" onAction="#classAttendanceEndDClick" text="01" />
+                              <MenuItem mnemonicParsing="false" onAction="#classAttendanceEndDClick" text="10" />
+                              <MenuItem mnemonicParsing="false" onAction="#classAttendanceEndDClick" text="20" />
+                              <MenuItem mnemonicParsing="false" onAction="#classAttendanceEndDClick" text="30" />
+                           </items>
+                        </MenuButton>
+                        <MenuButton fx:id="classAttendanceStartD" mnemonicParsing="false" prefHeight="36.0" prefWidth="83.0" GridPane.columnIndex="6">
+                           <items>
+                              <MenuItem mnemonicParsing="false" onAction="#classAttendanceStartDClick" text="01" />
+                              <MenuItem mnemonicParsing="false" onAction="#classAttendanceStartDClick" text="10" />
+                              <MenuItem mnemonicParsing="false" onAction="#classAttendanceStartDClick" text="20" />
+                              <MenuItem mnemonicParsing="false" onAction="#classAttendanceStartDClick" text="30" />
+                           </items>
+                        </MenuButton>
+                        <MenuButton fx:id="classAttendanceEndM" mnemonicParsing="false" prefHeight="36.0" prefWidth="84.0" GridPane.columnIndex="4" GridPane.rowIndex="2">
+                           <items>
+                              <MenuItem mnemonicParsing="false" onAction="#classAttendanceEndMClick" text="12" />
+                              <MenuItem mnemonicParsing="false" onAction="#classAttendanceEndMClick" text="11" />
+                              <MenuItem mnemonicParsing="false" onAction="#classAttendanceEndMClick" text="10" />
+                              <MenuItem mnemonicParsing="false" onAction="#classAttendanceEndMClick" text="09" />
+                              <MenuItem mnemonicParsing="false" onAction="#classAttendanceEndMClick" text="08" />
+                              <MenuItem mnemonicParsing="false" onAction="#classAttendanceEndMClick" text="07" />
+                              <MenuItem mnemonicParsing="false" onAction="#classAttendanceEndMClick" text="06" />
+                              <MenuItem mnemonicParsing="false" onAction="#classAttendanceEndMClick" text="05" />
+                              <MenuItem mnemonicParsing="false" onAction="#classAttendanceEndMClick" text="04" />
+                              <MenuItem mnemonicParsing="false" onAction="#classAttendanceEndMClick" text="03" />
+                              <MenuItem mnemonicParsing="false" onAction="#classAttendanceEndMClick" text="02" />
+                              <MenuItem mnemonicParsing="false" onAction="#classAttendanceEndMClick" text="01" />
+                           </items>
+                        </MenuButton>
+                        <MenuButton fx:id="classAttendanceStartY" mnemonicParsing="false" prefHeight="36.0" prefWidth="91.0" GridPane.columnIndex="2">
+                           <items>
+                              <MenuItem mnemonicParsing="false" onAction="#classAttendanceStartYClick" text="2014" />
+                              <MenuItem mnemonicParsing="false" onAction="#classAttendanceStartYClick" text="2015" />
+                              <MenuItem mnemonicParsing="false" onAction="#classAttendanceStartYClick" text="2016" />
+                              <MenuItem mnemonicParsing="false" onAction="#classAttendanceStartYClick" text="2017" />
+                              <MenuItem mnemonicParsing="false" onAction="#classAttendanceStartYClick" text="2018" />
+                              <MenuItem mnemonicParsing="false" onAction="#classAttendanceStartYClick" text="2019" />
+                           </items>
+                        </MenuButton>
+                     </children>
+                  </GridPane>
+                  <Label fx:id="warning11" layoutX="765.0" layoutY="36.0" textFill="RED" />
+                  <Button fx:id="classAttendanceTimeConfirm" layoutX="684.0" layoutY="16.0" mnemonicParsing="false" onAction="#overallAttendanceClick" prefHeight="63.0" prefWidth="70.0" text="确定" />
+               </children></AnchorPane>
+         </children>
+      </AnchorPane>
+   </center>
+   <left>
+      <VBox prefHeight="525.0" prefWidth="219.0" style="-fx-background-color: #d9ead3; -fx-border-color: black;" BorderPane.alignment="CENTER">
+         <children>
+            <MenuButton alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" popupSide="RIGHT" prefHeight="74.0" prefWidth="300.0" style="-fx-background-color: #7da79a; -fx-border-color: white; -fx-border-width: 2px;" text="查看学生信息" textFill="WHITE">
+               <items>
+                  <MenuItem fx:id="studentInfoBtn" mnemonicParsing="false" onAction="#studentInfoBtnClick" text="查看学生基本信息" />
+                  <MenuItem fx:id="studentAttendanceBtn" mnemonicParsing="false" onAction="#studentAttendanceBtnClick" text="查看学生考勤记录" />
+                  <MenuItem fx:id="studentGrowingBtn" mnemonicParsing="false" onAction="#studentGrowingBtnClick" text="查看学生成长档案" />
+                  <MenuItem fx:id="studentScoreBtn" mnemonicParsing="false" onAction="#studentScoreBtnClick" text="查看学生学业画像" />
+               </items>
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </MenuButton>
+            <Button fx:id="teacherInfoBtn" mnemonicParsing="false" onAction="#teacherInfoBtnClick" prefHeight="77.0" prefWidth="300.0" style="-fx-background-color: #7da79a; -fx-border-color: white; -fx-border-width: 2px;" text="查看老师基本信息" textFill="WHITE">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Button>
+            <Button fx:id="classStudentBtn" mnemonicParsing="false" onAction="#classStudentBtnClick" prefHeight="77.0" prefWidth="300.0" style="-fx-background-color: #7da79a; -fx-border-color: white; -fx-border-width: 2px;" text="查看班级学生名单" textFill="#fcf8f8">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Button>
+            <Button fx:id="classAttendanceBtn" mnemonicParsing="false" onAction="#classAttendanceBtnClick" prefHeight="77.0" prefWidth="300.0" style="-fx-background-color: #7da79a; -fx-border-color: white; -fx-border-width: 2px;" text="总体考勤情况">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Button>
+            <Button fx:id="statisticsGradeScoreBtn" mnemonicParsing="false" onAction="#statisticsGradeScoreBtnClick" prefHeight="77.0" prefWidth="300.0" style="-fx-background-color: #7da79a; -fx-border-color: white; -fx-border-width: 2px;" text="统计年级学业" textFill="WHITE">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Button>
+            <Button fx:id="statisticeClassScoreBtn" mnemonicParsing="false" onAction="#statisticsClassScoreBtnClick" prefHeight="77.0" prefWidth="300.0" style="-fx-background-color: #7da79a; -fx-border-color: white; -fx-border-width: 2px;" text="统计班级学业" textFill="#fcf8f8">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+   </left>
+</BorderPane>

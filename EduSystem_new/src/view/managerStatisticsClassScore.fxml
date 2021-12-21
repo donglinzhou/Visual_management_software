@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1250.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.ManagerController">
+   <top>
+      <AnchorPane prefHeight="71.0" prefWidth="900.0" style="-fx-background-color: #a5bc9d; -fx-border-color: black; -fx-border-width: 1px;" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="headTxt" alignment="CENTER" layoutX="383.0" layoutY="5.0" prefHeight="61.0" prefWidth="156.0" style="-fx-background-color: #7da79a;" text="教务端" textFill="#e8e6e6" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="360.0" AnchorPane.rightAnchor="360.0" AnchorPane.topAnchor="5.0">
+               <font>
+                  <Font size="40.0" />
+               </font>
+            </Label>
+         </children></AnchorPane>
+   </top>
+   <bottom>
+      <AnchorPane prefHeight="51.0" prefWidth="900.0" style="-fx-background-color: #a5bc9d; -fx-border-color: black; -fx-border-width: 1px;" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="logOut" layoutX="767.0" layoutY="2.0" mnemonicParsing="false" onAction="#logOutClick" prefHeight="49.0" prefWidth="133.0" style="-fx-background-color: #7da79a;" text="退出登录" textFill="#f5eeee" AnchorPane.bottomAnchor="1.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
+               <font>
+                  <Font size="22.0" />
+               </font></Button>
+         </children></AnchorPane>
+   </bottom>
+   <center>
+      <AnchorPane prefHeight="524.0" prefWidth="677.0" style="-fx-background-color: #e3f2de; -fx-border-color: white; -fx-border-width: 1px;">
+         <children>
+            <AnchorPane layoutX="21.0" layoutY="21.0" prefHeight="644.0" prefWidth="681.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <MenuButton fx:id="statisticsClassScoreTimesConfirm" alignment="CENTER" layoutX="532.0" layoutY="20.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="265.0" text="考试近况时间选择" AnchorPane.leftAnchor="532.0" AnchorPane.topAnchor="20.0">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                     <items>
+                        <MenuItem fx:id="classLastThreeTimesBtn" mnemonicParsing="false" onAction="#classScoreClick" style="-fx-font-size: 22px;" text="最近3次" />
+                        <MenuItem fx:id="classLastFiveTimesBtn" mnemonicParsing="false" onAction="#classScoreClick" style="-fx-font-size: 22px;" text="最近5次" />
+                        <MenuItem fx:id="classLastTenTimesBtn" mnemonicParsing="false" onAction="#classScoreClick" style="-fx-font-size: 22px;" text="最近10次" />
+                     </items>
+                  </MenuButton>
+                  <MenuButton fx:id="statisticsClassScoreSubjectConfirm" alignment="CENTER" layoutX="310.0" layoutY="20.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="208.0" text="考试科目选择" AnchorPane.leftAnchor="310.0" AnchorPane.topAnchor="20.0">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#statisticsClassScoreSubjectClick" style="-fx-font-size: 22px;" text="语文" />
+                        <MenuItem mnemonicParsing="false" onAction="#statisticsClassScoreSubjectClick" style="-fx-font-size: 22px;" text="数学" />
+                        <MenuItem mnemonicParsing="false" onAction="#statisticsClassScoreSubjectClick" style="-fx-font-size: 22px;" text="英语" />
+                        <MenuItem mnemonicParsing="false" onAction="#statisticsClassScoreSubjectClick" style="-fx-font-size: 22px;" text="物理" />
+                        <MenuItem mnemonicParsing="false" onAction="#statisticsClassScoreSubjectClick" style="-fx-font-size: 22px;" text="化学" />
+                        <MenuItem mnemonicParsing="false" onAction="#statisticsClassScoreSubjectClick" style="-fx-font-size: 22px;" text="生物" />
+                        <MenuItem mnemonicParsing="false" onAction="#statisticsClassScoreSubjectClick" style="-fx-font-size: 22px;" text="政治" />
+                        <MenuItem mnemonicParsing="false" onAction="#statisticsClassScoreSubjectClick" style="-fx-font-size: 22px;" text="历史" />
+                        <MenuItem mnemonicParsing="false" onAction="#statisticsClassScoreSubjectClick" style="-fx-font-size: 22px;" text="地理" />
+                     </items>
+                  </MenuButton>
+                  <TextField fx:id="statisticsClassScoreIdInput" alignment="BOTTOM_LEFT" layoutX="49.0" layoutY="20.0" prefHeight="50.0" prefWidth="230.0" promptText="请输入班级id" AnchorPane.leftAnchor="49.0" AnchorPane.topAnchor="20.0">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </TextField>
+                  <LineChart fx:id="classScore" layoutX="164.0" layoutY="91.0">
+                    <xAxis>
+                      <CategoryAxis animated="false" side="BOTTOM" />
+                    </xAxis>
+                    <yAxis>
+                      <NumberAxis side="LEFT" />
+                    </yAxis>
+                  </LineChart>
+                  <Label fx:id="emptyWarning6" layoutX="792.0" layoutY="45.0" />
+               </children></AnchorPane>
+         </children>
+      </AnchorPane>
+   </center>
+   <left>
+      <VBox prefHeight="525.0" prefWidth="219.0" style="-fx-background-color: #d9ead3; -fx-border-color: black;" BorderPane.alignment="CENTER">
+         <children>
+            <MenuButton alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" popupSide="RIGHT" prefHeight="74.0" prefWidth="300.0" style="-fx-background-color: #7da79a; -fx-border-color: white; -fx-border-width: 2px;" text="查看学生信息" textFill="WHITE">
+               <items>
+                  <MenuItem fx:id="studentInfoBtn" mnemonicParsing="false" onAction="#studentInfoBtnClick" text="查看学生基本信息" />
+                  <MenuItem fx:id="studentAttendanceBtn" mnemonicParsing="false" onAction="#studentAttendanceBtnClick" text="查看学生考勤记录" />
+                  <MenuItem fx:id="studentGrowingBtn" mnemonicParsing="false" onAction="#studentGrowingBtnClick" text="查看学生成长档案" />
+                  <MenuItem fx:id="studentScoreBtn" mnemonicParsing="false" onAction="#studentScoreBtnClick" text="查看学生学业画像" />
+               </items>
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </MenuButton>
+            <Button fx:id="teacherInfoBtn" mnemonicParsing="false" onAction="#teacherInfoBtnClick" prefHeight="77.0" prefWidth="300.0" style="-fx-background-color: #7da79a; -fx-border-color: white; -fx-border-width: 2px;" text="查看老师基本信息" textFill="WHITE">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Button>
+            <Button fx:id="classStudentBtn" mnemonicParsing="false" onAction="#classStudentBtnClick" prefHeight="77.0" prefWidth="300.0" style="-fx-background-color: #7da79a; -fx-border-color: white; -fx-border-width: 2px;" text="查看班级学生名单" textFill="#fcf8f8">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Button>
+            <Button fx:id="classAttendanceBtn" mnemonicParsing="false" onAction="#classAttendanceBtnClick" prefHeight="77.0" prefWidth="300.0" style="-fx-background-color: #7da79a; -fx-border-color: white; -fx-border-width: 2px;" text="总体考勤情况" textFill="WHITE">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Button>
+            <Button fx:id="statisticsGradeScoreBtn" mnemonicParsing="false" onAction="#statisticsGradeScoreBtnClick" prefHeight="77.0" prefWidth="300.0" style="-fx-background-color: #7da79a; -fx-border-color: white; -fx-border-width: 2px;" text="统计年级学业" textFill="WHITE">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Button>
+            <Button fx:id="statisticeClassScoreBtn" mnemonicParsing="false" onAction="#statisticsClassScoreBtnClick" prefHeight="77.0" prefWidth="300.0" style="-fx-background-color: #7da79a; -fx-border-color: white; -fx-border-width: 2px;" text="统计班级学业">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+   </left>
+</BorderPane>
