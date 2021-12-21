@@ -484,7 +484,7 @@ public class TeacherController implements Initializable {
   			String[] types = {"迟到", "进校", "课间操请假", "离校", "默认信息", "请假离校", "晚到学校",
   					"晚自修迟到", "校服", "校徽校服", "早上迟到", "早退", "住宿早晨锻炼"};
   	  		
-  	  		for (int i = 0; i < 3; i++) {
+  	  		for (int i = 0; i < data1.length; i++) {
   	  			series.getData().add(new XYChart.Data<String, Number>(types[i], Integer.parseInt(data1[i])));
   	  		}
   	  		studentAttendanceAbsence.getData().add(series);
