@@ -4,54 +4,66 @@ import java.util.ArrayList;
 
 public class Teachers extends Person{
 	
-	/*查询学生信息部分，整合时加入
+	//声明接口
+	//学生端接口
 	CheckStudentInfoBehavior checkStudentInfoBehavior;
 	CheckStudentTrackInfoBehavior checkStudentTrackInfoBehavior;
 	CheckStudentGradeInfoBehavior checkStudentGradeInfoBehavior;
-	CheckStudentConsumptionInfoBehavior checkStudentConsumptionInfoBehavior;
 	CheckStudentAttendanceRecordBehavior checkStudentAttendanceRecordBehavior;
-	*/
-	
+	//教师端接口
 	CheckClassedListBehavior checkClassedListBehavior;
-	CheckClassHistoryGradeListBehavior checkClassHistoryGradeListBehavior;
     CheckClassMemberListBehavior checkClassMemberListBehavior;
     CheckClassStudentGradeBehavior checkClassStudentGradeBehavior;
-    CheckClassStudentSubjectHistoryListBehavior checkClassStudentSubjectHistoryListBehavior;
     CheckTeacherInfoBehavior checkTeacherInfoBehavior;
+       
+    //调用方法
+    public ArrayList<String> performCheckStudentInfo(String ID) {
+    	//打印学生基本信息
+		return checkStudentInfoBehavior.checkStudentInfo(ID);
+	}
+	
+	public ArrayList<Integer> performCheckStudentTrackInfo(String ID, int n) {
+		//打印学生成长档案
+		return checkStudentTrackInfoBehavior.checkStudentTrackInfo(ID,n);
+	}
+	
+	public ArrayList<ArrayList<Integer>> performCheckStudentGradeInfo(String ID, int n) {
+		//打印学生学业信息
+		return checkStudentGradeInfoBehavior.checkStudentGradeInfo(ID,n);
+	}	
+	
+	public ArrayList<Integer> performCheckStudentAttendanceRecord(int studentID, int n) {
+		//打印学生考勤记录
+		return checkStudentAttendanceRecordBehavior.checkStudentAttendanceRecord(studentID, n);
+		
+	}
+    
     
     public ArrayList<String> performCheckClassedList(String teacherid){
+    	//打印任课班级名单
     	return checkClassedListBehavior.checkclassedlist(teacherid);
-    }
-    
-    public ArrayList<ArrayList<String>> performCheckClassHistoryGradeList(){
-    	return checkClassHistoryGradeListBehavior.checkclasshistorygradeList(null, null, null);
-    }
+    }    
     
     public ArrayList<String> performCheckClassMemberList(String teacherid){
+    	//打印班级学生名单
     	return checkClassMemberListBehavior.checkclassmemberlist(teacherid);
     }
     
-    public ArrayList<ArrayList<String>> performCheckClassStudentGrade(){
-    	return checkClassStudentGradeBehavior.checkclassstudentgrade(null, null, null);
-    }
+    public ArrayList<ArrayList<Integer>> performCheckClassStudentGrade(String teacherid, String termid, String time, String examsubjectid){
+    	//打印班级学生成绩
+    	return checkClassStudentGradeBehavior.checkclassstudentgrade(teacherid, termid, time, examsubjectid);
+    }   
     
-    public ArrayList<ArrayList<String>> performCheckClassStudentSubjectHistoryList(){
-    	return checkClassStudentSubjectHistoryListBehavior.checkclassstudentsubjecthistorygradeList(null, null, null, null);
-    }
-    
-    public ArrayList<ArrayList<String>> performCheckTeacherInfo(String teacherid){
+    public ArrayList<String> performCheckTeacherInfo(String teacherid){
+    	//打印老师基本信息
     	return checkTeacherInfoBehavior.checkteacherinfo(teacherid);
     }
     
-    //this
+    //设置接口
     public void setCheckClassedListBehavior(CheckClassedListBehavior checkClassedListBehavior) {
     	this.checkClassedListBehavior = checkClassedListBehavior;
     }
-    
-    public void setCheckClassHistoryGradeListBehavior(CheckClassHistoryGradeListBehavior checkClassHistoryGradeListBehavior) {
-    	this.checkClassHistoryGradeListBehavior = checkClassHistoryGradeListBehavior;
-    }
-    
+
     public void setCheckClassMemberListBehavior(CheckClassMemberListBehavior checkClassMemberListBehavior) {
     	this.checkClassMemberListBehavior = checkClassMemberListBehavior;
     }
@@ -60,16 +72,12 @@ public class Teachers extends Person{
     	this.checkClassStudentGradeBehavior = checkClassStudentGradeBehavior;
     }
     
-    public void setCheckClassStudentSubjectHistoryListBehavior(CheckClassStudentSubjectHistoryListBehavior checkClassStudentSubjectHistoryListBehavior) {
-    	this.checkClassStudentSubjectHistoryListBehavior = checkClassStudentSubjectHistoryListBehavior;
-    }
-    
     public void setCheckTeacherInfoBehavior( CheckTeacherInfoBehavior checkTeacherInfoBehavior) {
     	this.checkTeacherInfoBehavior = checkTeacherInfoBehavior;
     }
     
-    /*查询学生信息部分，整合时加入
-     public void setCheckStudentInfoBehavior(CheckStudentInfoBehavior checkStudentInfoBehavior) {
+    //学生端接口
+    public void setCheckStudentInfoBehavior(CheckStudentInfoBehavior checkStudentInfoBehavior) {
 		this.checkStudentInfoBehavior = checkStudentInfoBehavior;
 	}
 	
@@ -79,14 +87,10 @@ public class Teachers extends Person{
 	
 	public void setCheckStudentGradeInfoBehavior(CheckStudentGradeInfoBehavior checkStudentGradeInfoBehavior) {
 		this.checkStudentGradeInfoBehavior = checkStudentGradeInfoBehavior;
-	}
+	}	
 	
 	public void setCheckStudentAttendanceRecordBehavior(CheckStudentAttendanceRecordBehavior checkAttendanceRecordBehavior) {
 		this.checkStudentAttendanceRecordBehavior = checkAttendanceRecordBehavior;
-	}
-	
-	public void setAddStudentInfoBehavior(AddStudentInfoBehavior addStudentInfoBehavior) {
-		this.addStudentInfoBehavior = addStudentInfoBehavior;
-	}
-    */
+	}	
+
 }

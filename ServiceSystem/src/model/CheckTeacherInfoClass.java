@@ -11,10 +11,10 @@ import java.util.Calendar;
 public class CheckTeacherInfoClass implements CheckTeacherInfoBehavior {
 
 	@Override
-	public ArrayList<ArrayList<String>> checkteacherinfo(String teacherid) {
+	public ArrayList<String> checkteacherinfo(String teacherid) {
 		// TODO 自动生成的方法存根
 		//查询老师基本信息:名字，教师编号，头像，年龄，性别，任课科目，任课班级，学历，联系电话，邮箱
-		ArrayList<ArrayList<String>> teacherInfo = new ArrayList<ArrayList<String>>();
+		ArrayList<String> teacherInfo = new ArrayList<String>();
 		
 		//声明Calendar类，获取当前年份，计算年龄
 		Calendar calendar = Calendar.getInstance();
@@ -27,9 +27,9 @@ public class CheckTeacherInfoClass implements CheckTeacherInfoBehavior {
 		String driver = "com.mysql.cj.jdbc.Driver";
 		//URL指向要访问的数据库名
 		//第一个数据库端口
-		String url = "jdbc:mysql://172.16.107.100:3306/软工小组项目";
+		//String url = "jdbc:mysql://172.16.107.100:3306/软工小组项目";
 		//第二个数据库端口
-		//String url = "jdbc:mysql://10.22.27.7:3306/软工小组项目";
+		String url = "jdbc:mysql://10.22.27.7:3306/软工小组项目";
 		 //MySQL配置时的用户名
         String user = "林鑫灿";
         //MySQL配置时的密码
@@ -64,8 +64,6 @@ public class CheckTeacherInfoClass implements CheckTeacherInfoBehavior {
         	String age = null;	//年龄
         	String subject = null;	//任课科目
         	
-        	//写入Arraylist数组中
-        	ArrayList<String> onerow = new ArrayList<String>();	// 创建一维数组输入
         	
         	while (rs.next()) {
         		idint = rs.getInt("教师ID");	//获取教师ID
@@ -91,15 +89,15 @@ public class CheckTeacherInfoClass implements CheckTeacherInfoBehavior {
 				age = Integer.toString(ageint); 
         		
         		//写入数组
-        		onerow.add(id);
-        		onerow.add(name);
-        		onerow.add(gender);
-        		onerow.add(nation);
-        		onerow.add(politics);
-        		onerow.add(education);
-        		onerow.add(age);
-        		onerow.add(phone);
-        		onerow.add(email);
+        		//teacherInfo.add(id);
+        		teacherInfo.add(name);
+        		teacherInfo.add(age);
+        		teacherInfo.add(gender);
+        		teacherInfo.add(nation);
+        		teacherInfo.add(politics);
+        		teacherInfo.add(education);
+        		teacherInfo.add(phone);
+        		teacherInfo.add(email);
         		
         		
         		
@@ -112,10 +110,8 @@ public class CheckTeacherInfoClass implements CheckTeacherInfoBehavior {
         	
         	while (result.next()) {
 				subject = result.getString("学科名");	//获取任课科目
-				onerow.add(subject);
+				teacherInfo.add(subject);
         		
-				//录入完所有的资料再写入二维数组
-        		teacherInfo.add(onerow);
 			}
         	conn.close();
         	

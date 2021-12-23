@@ -1,61 +1,67 @@
 package model;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
  
 /**
  * 
- * Êı¾İ¿â¿ØÖÆÀà
- * »¯¼òÊı¾İ¿âµÄ²Ù×÷
+ * æ•°æ®åº“æ§åˆ¶ç±»
+ * åŒ–ç®€æ•°æ®åº“çš„æ“ä½œ
  * 
- * **²½Öè×Ü½á**
- * 1¡¢¼ÓÔØÇı¶¯
- * 2¡¢Á¬½ÓÊı¾İ¿â DriverManager
- * 3¡¢»ñÈ¡Ö´ĞĞSQLµÄ¶ÔÏó Statement
- * 4¡¢»ñµÃ·µ»ØµÄ½á¹û¼¯ ResultSet
- * 5¡¢ÊÍ·ÅÁ¬½Ó
+ * **æ­¥éª¤æ€»ç»“**
+ * 1ã€åŠ è½½é©±åŠ¨
+ * 2ã€è¿æ¥æ•°æ®åº“ DriverManager
+ * 3ã€è·å–æ‰§è¡ŒSQLçš„å¯¹è±¡ Statement
+ * 4ã€è·å¾—è¿”å›çš„ç»“æœé›† ResultSet
+ * 5ã€é‡Šæ”¾è¿æ¥
  * 
  */
 public class DatabaseModel {
-    //1¡¢¼ÓÔØÇı¶¯
-    private final static String driver = "com.mysql.jdbc.Driver";
+    //1ã€åŠ è½½é©±åŠ¨
+    private final static String driver = "com.mysql.cj.jdbc.Driver";
     
-    //2.ÓÃ»§ĞÅÏ¢ºÍurl
-    private String url = "jdbc:mysql://localhost:3306/wechat?useUnicode=true&characterEncoding=utf-8";
-    //mysql Ä¬ÈÏ¶Ë¿Ú3306
-    //Ğ­Òé £º// Ö÷»úµØÖ· £º ¶Ë¿ÚºÅ / Êı¾İ¿âÃû £¿ ²ÎÊı1 & ²ÎÊı2 & ²ÎÊı3
-    private String userName = "root";
-    private String password = "123456";
+    //2.ç”¨æˆ·ä¿¡æ¯å’Œurl
+    //private String url = "jdbc:mysql://172.16.107.100:3306/wechat?useUnicode=true&characterEncoding=utf-8";
+    private String url = "jdbc:mysql://10.22.27.7:3306/è½¯å·¥å°ç»„é¡¹ç›®";
+    //mysql é»˜è®¤ç«¯å£3306
+    //åè®® ï¼š// ä¸»æœºåœ°å€ ï¼š ç«¯å£å· / æ•°æ®åº“å ï¼Ÿ å‚æ•°1 & å‚æ•°2 & å‚æ•°3
+    private String userName = "æ—é‘«ç¿";
+    private String password = "1234";
     
-    //3¡¢Á¬½Ó³É¹¦£¬Êı¾İ¿â¶ÔÏó Connection ´ú±íÊı¾İ¿â
+    //3ã€è¿æ¥æˆåŠŸï¼Œæ•°æ®åº“å¯¹è±¡ Connection ä»£è¡¨æ•°æ®åº“
     private Connection connection;
     //connection = DriverManager.getConnection(url, userName, password);
     
-    //4¡¢Ö´ĞĞsqlµÄ¶ÔÏó
-    private Statement statement;//¾²Ì¬²éÑ¯
-    private PreparedStatement preparedStatement;//¶¯Ì¬²éÑ¯
+    //4ã€æ‰§è¡Œsqlçš„å¯¹è±¡
+    private Statement statement;//é™æ€æŸ¥è¯¢
+    private PreparedStatement preparedStatement;//åŠ¨æ€æŸ¥è¯¢
     
     public DatabaseModel() {
  
     }
     
     /*
-    Á´½ÓÊı¾İ¿â
+    é“¾æ¥æ•°æ®åº“
      */
     public void connect(){
         try {
-            Class.forName(driver); //¹Ì¶¨Ğ´·¨£¬¼ÓÔØÇı¶¯
+            Class.forName(driver); //å›ºå®šå†™æ³•ï¼ŒåŠ è½½é©±åŠ¨
             connection = DriverManager.getConnection(url, userName, password);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
  
-    /**	²éÑ¯
+    /**	æŸ¥è¯¢
      *
-     * ¸Ã·½·¨ÓÃÀ´Ö´ĞĞSqlÓï¾ä²¢·µ»Ø½á¹û¼¯ ÊÊºÏĞèÒª·µ»Ø½á¹û¼¯µÄ²éÑ¯Óï¾ä 
-     * ÀıÈç   execResult("select*from user where id = ? and name = ?","1","jack");
-     * ÓÃÎÊºÅÕ¼Î» È»ºó´«Èë¸öStringÊı×é´ú±í¶ÔÓ¦ÎÊºÅµÄÖµ ¸Ã·½·¨·µ»Ø¸ö½á¹û¼¯ ¼´ ResultSet
+     * è¯¥æ–¹æ³•ç”¨æ¥æ‰§è¡ŒSqlè¯­å¥å¹¶è¿”å›ç»“æœé›† é€‚åˆéœ€è¦è¿”å›ç»“æœé›†çš„æŸ¥è¯¢è¯­å¥ 
+     * ä¾‹å¦‚   execResult("select*from user where id = ? and name = ?","1","jack");
+     * ç”¨é—®å·å ä½ ç„¶åä¼ å…¥ä¸ªStringæ•°ç»„ä»£è¡¨å¯¹åº”é—®å·çš„å€¼ è¯¥æ–¹æ³•è¿”å›ä¸ªç»“æœé›† å³ ResultSet
      *
      * @param Sql: String
      * @param data: ArrayList<String>
@@ -65,16 +71,18 @@ public class DatabaseModel {
      */
     public ResultSet execResult(String Sql, ArrayList<String> data) throws SQLException {
         preparedStatement = connection.prepareStatement(Sql);
+        
         for (int i = 1; i <= data.size(); i++) {
             preparedStatement.setString(i, data.get(i-1));
         }
-        return preparedStatement.executeQuery(); //²éÑ¯²Ù×÷£¬·µ»ØResultSet
+        System.out.println(preparedStatement);
+        return preparedStatement.executeQuery(); //æŸ¥è¯¢æ“ä½œï¼Œè¿”å›ResultSet
     }
  
-    /**	Ôö É¾ ¸Ä
+    /**	å¢ åˆ  æ”¹
      *
-     * Ö´ĞĞSqlÓï¾ä ²»·µ»ØÈÎºÎ¶«Î÷ 
-     * ÀıÈçexec("update user set password = ? where account = ?","password","name");
+     * æ‰§è¡ŒSqlè¯­å¥ ä¸è¿”å›ä»»ä½•ä¸œè¥¿ 
+     * ä¾‹å¦‚exec("update user set password = ? where account = ?","password","name");
      * exec("delete from user where name = ? and account = ?","name","account");
      * exec("insert into user values(?,?,?,?,?,?,?,?,?)",1,2,3,4,5,6,7,8,9);
      * @param Sql: String
@@ -89,14 +97,14 @@ public class DatabaseModel {
             preparedStatement.setString(i, data.get(i-1));
         }
         preparedStatement.executeUpdate();
-       //²åÈë¡¢É¾³ı¡¢¸üĞÂ£¬¶¼ÓÃexecuteUpdate()
+       //æ’å…¥ã€åˆ é™¤ã€æ›´æ–°ï¼Œéƒ½ç”¨executeUpdate()
     }
  
     
     /**
-     * Ö´ĞĞ¾²Ì¬SQLÓï¾ä  
-     * ÀıÈçexec("delete from user");
-     * @param Sql£ºString
+     * æ‰§è¡Œé™æ€SQLè¯­å¥  
+     * ä¾‹å¦‚exec("delete from user");
+     * @param Sqlï¼šString
      */
     public void exec(String Sql) {
         try
@@ -109,12 +117,12 @@ public class DatabaseModel {
     
     
     /**
-     * ¸Ã·½·¨²åÈëÔª×é  
-     * ÀıÈçinsert(±íÃû,Òª²åÈëµÄÊı¾İ(StringÊı×éµÄĞÎÊ½))
+     * è¯¥æ–¹æ³•æ’å…¥å…ƒç»„  
+     * ä¾‹å¦‚insert(è¡¨å,è¦æ’å…¥çš„æ•°æ®(Stringæ•°ç»„çš„å½¢å¼))
      * Sql = "INSERT INTO " + tableName + " VALUES(" + pre + ")"
      *
-     * @param tableName£ºString
-     * @param data£ºArrayList<String> 
+     * @param tableNameï¼šString
+     * @param dataï¼šArrayList<String> 
      * @throws SQLException
      */
     public void insert(String tableName, ArrayList<String> data) throws SQLException {
@@ -142,12 +150,12 @@ public class DatabaseModel {
  
     
     /**
-     * ¸Ã·½·¨É¾³ıÔª×é
+     * è¯¥æ–¹æ³•åˆ é™¤å…ƒç»„
      * "DELETE FROM " + tableName + " WHERE " + condition + "= ?";
      * 
-     * @param tableName£ºString
-     * @param condition£ºString
-     * @param data£ºArrayList<String>
+     * @param tableNameï¼šString
+     * @param conditionï¼šString
+     * @param dataï¼šArrayList<String>
      * @throws SQLException
      */
     public void delete(String tableName, String condition, ArrayList<String> data) throws SQLException {
@@ -168,13 +176,13 @@ public class DatabaseModel {
  
     
 	/**
-	 * ĞŞ¸Ä²Ù×÷µÄÉèÏë£¬ĞŞ¸ÄÊ±Ç°¶ËÕûÁĞÊı¾İ£¨Ô­Êı¾İ£©ÏÔÊ¾£¬ĞŞ¸Äºó£¬ÕÕÔ­Ñù£¨±íÍ·¸ñÊ½£©ÕûÁĞÊı¾İ·µ»Ø¸øºó¶Ë£¬
-	 * ¼´£¬Ã»ĞŞ¸ÄµÄÊı¾İÒ²±»Ò»Æğ·µ»Ø \\
-	 * !!ÎÊÌâ£ºUPDATE Ñ§ÉúÁùÑ¡Èı±í SET Ö÷ĞŞÑ§¿ÆID=?, ´ÎĞŞÑ§¿ÆID1=?, ´ÎĞŞÑ§¿ÆID2=? WHERE Ñ§ÉúID=? 
-	 * ×÷Îª ¼ìË÷Ìõ¼şµÄÁĞ Æä¶ÔÓ¦ÖµµÄÎ»ÖÃĞèÒªÇ°¶Ë²ÎÓë£¨¼´·µ»ØµÄÊı×éÖĞ ÖµµÄË³Ğò ÎÊÌâ£©
+	 * ä¿®æ”¹æ“ä½œçš„è®¾æƒ³ï¼Œä¿®æ”¹æ—¶å‰ç«¯æ•´åˆ—æ•°æ®ï¼ˆåŸæ•°æ®ï¼‰æ˜¾ç¤ºï¼Œä¿®æ”¹åï¼Œç…§åŸæ ·ï¼ˆè¡¨å¤´æ ¼å¼ï¼‰æ•´åˆ—æ•°æ®è¿”å›ç»™åç«¯ï¼Œ
+	 * å³ï¼Œæ²¡ä¿®æ”¹çš„æ•°æ®ä¹Ÿè¢«ä¸€èµ·è¿”å› \\
+	 * !!é—®é¢˜ï¼šUPDATE å­¦ç”Ÿå…­é€‰ä¸‰è¡¨ SET ä¸»ä¿®å­¦ç§‘ID=?, æ¬¡ä¿®å­¦ç§‘ID1=?, æ¬¡ä¿®å­¦ç§‘ID2=? WHERE å­¦ç”ŸID=? 
+	 * ä½œä¸º æ£€ç´¢æ¡ä»¶çš„åˆ— å…¶å¯¹åº”å€¼çš„ä½ç½®éœ€è¦å‰ç«¯å‚ä¸ï¼ˆå³è¿”å›çš„æ•°ç»„ä¸­ å€¼çš„é¡ºåº é—®é¢˜ï¼‰
 	 * 
-	 * @param tableName£ºString
-     * @param data£ºArrayList<String> 
+	 * @param tableNameï¼šString
+     * @param dataï¼šArrayList<String> 
      * @throws SQLException
 	 * */
     public void update(String Sql, ArrayList<String> data) throws SQLException {
@@ -203,12 +211,12 @@ public class DatabaseModel {
     }
  
     /**
-     * ¶¯Ì¬²éÑ¯Êı¾İ  
-     * ÀıÈçselect(±íÃû,²éÑ¯Ìõ¼ş(StringÊı×éµÄĞÎÊ½))
+     * åŠ¨æ€æŸ¥è¯¢æ•°æ®  
+     * ä¾‹å¦‚select(è¡¨å,æŸ¥è¯¢æ¡ä»¶(Stringæ•°ç»„çš„å½¢å¼))
      * Sql = "SELECT" + targets + "FROM" + tables + " WHERE" + datas;
      *
-     * @param tableName£ºString
-     * @param data£ºArrayList<String> 
+     * @param tableNameï¼šString
+     * @param dataï¼šArrayList<String> 
      * @throws SQLException
      */
     public ResultSet select(ArrayList<String> tableName, ArrayList<String> target, ArrayList<String> data) throws SQLException {
@@ -268,7 +276,7 @@ public class DatabaseModel {
     }
     
     /**
-     * ¾²Ì¬²éÑ¯
+     * é™æ€æŸ¥è¯¢
      * 
      * @param Sql
      * @return
@@ -283,7 +291,7 @@ public class DatabaseModel {
  
     
     /**
-     * µÃµ½¾²Ì¬²éÑ¯¶ÔÏó
+     * å¾—åˆ°é™æ€æŸ¥è¯¢å¯¹è±¡
      * @return
      */
     public Statement getStatement() {
@@ -292,7 +300,7 @@ public class DatabaseModel {
  
     
     /**
-     * µÃµ½¶¯Ì¬²éÑ¯¶ÔÏó
+     * å¾—åˆ°åŠ¨æ€æŸ¥è¯¢å¯¹è±¡
      * @return
      */
     public PreparedStatement getPreparedStatement() {
@@ -301,7 +309,7 @@ public class DatabaseModel {
  
     
     /**
-     * µÃµ½Êı¾İ¿âÁ´½Ó¶ÔÏó
+     * å¾—åˆ°æ•°æ®åº“é“¾æ¥å¯¹è±¡
      * @return
      */
     public Connection getConnection() {
@@ -310,7 +318,7 @@ public class DatabaseModel {
  
     
     /**
-     * Êı¾İ¿âÖØÁ¬
+     * æ•°æ®åº“é‡è¿
      * @param Url
      * @param UserName
      * @param Password

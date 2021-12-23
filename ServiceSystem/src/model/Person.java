@@ -1,30 +1,30 @@
 package model;
-/*  鐧诲綍鎿嶄綔绫�     */
+
 public abstract class Person {
 	protected String name=" ";
-	protected int id=0;
+	protected int id=49;
 	private String password=" ";
 	protected int identity=0;
 	
 	protected boolean register(int id, String password) {
-		/*鐧诲綍鍔熻兘*/
+		/*登录功能*/
 		boolean status=true;
 		return status;
 	}
 	
 	protected boolean changePassword(int id, String password) {
-		/*鐧诲綍瀵嗙爜淇敼*/
+		/*登录密码修改*/
 		boolean status=true;
 		return status;
 	}
 	
 	public int getId() {
-		/*杩斿洖鐧婚檰鑰呯殑ID*/
+		/*返回登陆者的ID*/
 		return this.id;
 	}
 	
 	protected void setIdentity() {
-		/*璁剧疆鐘舵�侊細1琛ㄧず宸茬粡鐧诲綍锛�0琛ㄧず鏈櫥褰�*/
+		/*设置状态：1表示已经登录，0表示未登录*/
 		this.identity = 0;
 	}
 	

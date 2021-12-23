@@ -1,6 +1,8 @@
 package model;
 
+import java.util.ArrayList;
+
 public interface AddStudentInfoBehavior {
-	//增加学生信息,写入数据库
-	public void addStudentInfo(int studentID);
+	
+	public ArrayList<String> addStudentInfo(ArrayList<String> data);
 }
